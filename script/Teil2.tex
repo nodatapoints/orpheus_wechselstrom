@@ -53,6 +53,46 @@ Eine solche Bahn lässt sich im komplexen leicht durch eine Exponentialfunktion
 ausdrücken. Deswegen wird eine harmonische Schwingung in der komplexen Wechselstromrechnung durch diese beschrieben.
 $$A e^{\imu \omega t + \imu \phi_0} = A\cos(\omega t + \phi_0) + A\sin(\omega t + \phi_0)\imu = (A,\omega t + \phi_0)_{r,\,\varphi}$$
 
-
 \subsection{Impendanz}
-This is more testing text.
+Das passive elektrische Bauteil erzwingt eine Relation der abfallenden Spannung und des fließenden Stromes über sich selbst.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{rrcrrcl}
+    \toprule 
+     & \multicolumn{2}{c}{Physikalische Größe} & \multicolumn{2}{c}{Phase $U$ vor $I$} & $S = \hat{U}/\hat{I}$ & Dgl.\\
+    \midrule
+    Widerstand  & Widerstand    & $R$ & $0^\circ$   & $0$      & $R$              & $U = RI$ \\
+    Kondensator & Kapazität     & $C$ & $-90^\circ$ & $-\pi/2$ & $1/\omega C$     & $U = C^{-1} \int I \dd{t}$ \\
+    Spule       & Induktivität  & $L$ & $90^\circ$  & $\pi/2$  & $\omega L$       & $U = L \dv{I}{t}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Relation der Spannung und des Stromes über ein passives Bauteil}
+\end{table}\\ 
+Diese Relation stellt eine Skalierung und eine Phasenverschiebung dar, mit der $U(t)$ in $I(t)$ 
+und umgekehrt überführt werden kann.
+$$U(t) = I\qty(t + \frac{\text{Phasenverschiebung}}{\omega}) \cdot \text{ Skalierung } \eqqcolon I\qty(t + \frac{\Delta \phi}{\omega}) \cdot S$$
+
+Stellen wir nun diese Größen wieder als polare komplexe Zahl $(S,\Delta \phi)_{r,\,\varphi}$ dar, dann wirkt diese genau so auf das komplexe Spannungssignal, um ein komplexes Stromsignal zu ergeben, wie das Bauteil die physische Relation zwischen Spannung und Strom erwirkt.
+\begin{align*}
+    (S,\Delta \phi)_{r,\,\varphi} \cdot (A,\omega t + \phi_0)_{r,\,\varphi} = (SA,\omega t + \phi_0 + \Delta \phi)_{r,\,\varphi}
+\end{align*}
+Für die speziellen Bauteile ergeben sich diese dann zu
+\begin{align*}
+    \text{Widerstand:} && X_R &= R = \qty(R,0)_{r,\,\varphi} = R \\
+    \text{Kondensator:} && X_C &= \qty(\frac{1}{\omega C},-\pi/2)_{r,\,\varphi} = \frac{-\imu}{\omega C}\\
+    \text{Spule:} && X_L &= \qty(\omega L,\pi/2)_{r,\,\varphi} = \imu \omega L \phantom{\hspace*{3cm}fff}
+\end{align*}
+
+Dies lässt sich auch rein mathematisch motivieren, wenn man $U = RI$ über komplexe Zahlen auch für Kondensator und Spule nutzen können möchte:
+(Man beachte wieder, dass $U(t)$ und $I(t)$ hier harmonische Schwingungen mit Kreisfrequenz $\omega$ sind)
+\begin{align*}
+    \text{Kond.:}&& U(t) &\eqqcolon X_CI(t) = C^{-1} \int I \dd{t} = \frac{I\qty(t - \frac{\pi}{2\omega})}{\omega C} & \implies && \omega C X_C  &= \frac{I\qty(t - \frac{\pi}{2\omega})}{I(t)} = -\imu \\
+    \text{Spule:}&& U(t) &\eqqcolon X_LI(t) = L \dv{I(t)}{t} = \omega L I\qty(t + \frac{\pi}{2\omega}) & \implies && \frac{X_L}{\omega L} &= \frac{I\qty(t + \frac{\pi}{2\omega})}{I(t)} = \imu
+\end{align*} 
+Die letzte Gleichheit ergibt sich aus der komplexwertigen Multiplikation.
+Denn um die Phase der Schwingung um $90^\circ$ zu erhöhen, ohne sie zu skalieren, muss man sie nach der Herleitung von oben mit $$(1,90^\circ)_{r,\,\varphi} = (1,\pi/2)_{r,\,\varphi} = (\cos(\pi/2), \sin(\pi/2))_{x,y} = (0, 1)_{x,y} = 0 + 1 \imu = \imu$$ multiplizieren. Deswegen gilt 
+$$I\qty(t + \frac{\pi}{2\omega}) = \imu \cdot I(t) \qquad I(t) = \imu \cdot I\qty(t - \frac{\pi}{2\omega})
+\quad \implies \quad I\qty(t - \frac{\pi}{2\omega}) = -\imu \cdot I\qty(t)$$
+Und somit folgt schließlich für die komplexwertigen Widerstände von Spule und Kondensator
+$$X_L = \imu \omega L \qquad X_C = \frac{-\imu}{\omega C} = \frac{1}{\imu \omega C}$$
+
