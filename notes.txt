@@ -1,8 +1,11 @@
+Passive Bauteile, was das?
+
 Passive Bauteile bei Wechselstrom 
     -> verschieben Phase und skalieren Amplitude  (A über t Diagrammen)                      Eine Frequenz
     -> (Integration Differentiation)                                                         Sinuswelle
 lineare Zeitinvarianz                                                                        Ein Bauteil
     -> Signal als Drehung in 2D?
+    -----
     -> komplexe Darstellung des Signals
     -> nur Realteil ist real
 Bauteilsmpendanz als komplexer Faktor
@@ -14,8 +17,8 @@ Bauteilsmpendanz als komplexer Faktor
 -> Schaltungen
 2-Pol-Schaltung
    - Parallel                                                                               Eine Frequenz
-   - Reihe
-   - was anderes
+   - Reihe                                                                                  Mehrere Bauteile
+   - was anderes                                                                            
        - Betrachtung über Frequenz -> Intuition Verhalten der Bauteile
        -> Beispiel L||C und L-C
 
@@ -28,6 +31,9 @@ LC-Schwingkreis
    - Resonanz
    - RLC?
 ------------------------------------------------------------------------------------------------------
+Ausblick 1: Mehrere Frequenzen -> FT
+Ausblick 2: Kamals Kreisinversion
+
 
 
 Themen:
