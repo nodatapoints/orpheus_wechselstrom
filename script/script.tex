@@ -1,0 +1,32 @@
+\documentclass[a4paper]{scrartcl}                        % Blatt
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=4cm]{geometry}    % Ränder
+\usepackage{amsmath,amsthm,amssymb,mathtools}                   % Mathestuff
+\usepackage{physics,mathptmx,siunitx,isotope}                   % Matheformat Stuff
+%\usepackage[utf8]{inputenc}                                     % lässt dich nativ ä ß etc. eingeben
+\usepackage[ngerman]{babel}                                     % macht zeugs deutsch
+\usepackage{booktabs,url,caption}                               % quality of life packages in speziellen Situationen
+\usepackage{lmodern}
+
+% stellt ein, wie SI deine Einheiten formatiert
+% kann man jederzeit geändert vor sein Zeugs kopieren, dann wird das ab da genutzt
+\sisetup{scientific-notation=engineering, exponent-product = \cdot, output-decimal-marker = {,}, separate-uncertainty, exponent-to-prefix}
+\DeclareCaptionType{Liste}[Liste][Liste]                        % von caption, lässt dich andere Sachen als Abb. und Tab. definieren
+
+\begingroup                                                     %
+\catcode`_=\active                                              % fancy shit
+\gdef\enablesbsb{                                               % müsst ihr nich verstehen
+   \catcode`_=\active                                           % vertsteh ich btw auch nich
+   \def_##1{\ifx_##1\expandafter\sbtext\else\sb{##1}\fi}        %
+}                                                               % lässt euch
+\gdef\disablesbsb{\catcode`_=8}                                 % a_x & a_{xx} für Mathesymbolindices &
+\endgroup                                                       % a__x & a__{xx} für Text machen!
+\def\sbtext#1{\sb{\text{#1}}}                                   % Bitte nutzt das
+
+\newcommand{\alt}{$\alpha$-Teilchen}
+
+\begin{document}
+\enablesbsb % macht a__x an
+
+\include{Teil2.tex}
+
+\end{document}
