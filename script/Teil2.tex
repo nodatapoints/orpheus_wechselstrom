@@ -1,4 +1,4 @@
-\subsection{Komplexe Zahlen}
+\section{Verhaltensdarstellung über Komplexe Zahlen}
 Normalerweise werden komplexe Zahlen via der imaginären Einheit $\imu^2 \coloneqq -1$ eingeführt.
 Anschließend definiert man dann die komplexen Zahlen über $\mathbb{C} \ni c \coloneqq a + b\cdot \imu$ mit $a,b \in \mathbb{R}$.
 Aus dieser Herangehensweise folgen dann recht schnell die Regeln zum Rechnen mit ebendiesen.
@@ -38,20 +38,21 @@ Abstand zum Koordinatenursprung $r$ und den Winkel zur X-Achse $\varphi$ berechn
 \end{align*}
 Die Multiplikation zweier solcher Vektoren dreht den ersten also noch um den Winkel des zweiten weiter, und streckt die Länge $r_1$ um den Faktor $r_2$
 
-\section{Verhaltensdarstellung über Komplexe Zahlen}
-
-Um nun zu verstehen, wie komplexe Zahlen nun hilfreich sein können,
-um die Interaktion von passiven elektrischen Bauteilen mit dem eingehenden Spannungs- oder Stromsignal 
-zu berechnen, benötigt man ein Verständnis der Multiplikation komplexer Zahlen in der Polardarstellung.
-
-
-\begin{align*}
-    Z_1&= (r_1, \varphi_1) & Z_1 \cdot Z_2 = (r_1 \cdot r_2, \varphi_1 + \varphi_2) \\
-    Z_2&= (r_2, \varphi_2)
-\end{align*}
+Um nun zu verstehen, wie komplexe Zahlen 
+bei der Berechnung der Interaktion von passiven elektrischen Bauteilen mit dem eingehenden Spannungs- oder Stromsignal helfen, stellen wir sowohl Signal als auch Bauteil als (polare) komplexe Zahl dar.
 
 \subsection{Signal}
-Eine kreisförmige Schwingung um den Ursprung lässt sich nun
+Das Signal sei eine harmonische Kosinusschwingung mit Frequenz (Kreisfrequenz $\omega$), Amplitude $A$ und Ausgangsphase $\phi_0$ .
+Wir stellen dies als einen kreisförmig um den Koordinatenursprung oszillierenden Punkt $P$ dar.
+$$P = (A \cos(\omega t + \phi_0), A \sin(\omega t + \phi_0))_{x,y} = (A,\omega t + \phi_0)_{r,\,\varphi}$$
+Der Winkel zur X-Achse ist dabei genau die Phase zum Zeitpunkt $t$, der Abstand zum Ursprung die Amplitude, und die Projektion auf die X-Achse den Wert der Schwingung zum Zeitpunkt $t$.
+
+Eine plötzliche Phasenänderung würde den Punkt auf seiner Bahn nach vorn oder zurück springen lassen, und eine Änderung der Schwingungsamplitude würde den Bahnradius verändern.
+
+Eine solche Bahn lässt sich im komplexen leicht durch eine Exponentialfunktion
+ausdrücken. Deswegen wird eine harmonische Schwingung in der komplexen Wechselstromrechnung durch diese beschrieben.
+$$A e^{\imu \omega t + \imu \phi_0} = A\cos(\omega t + \phi_0) + A\sin(\omega t + \phi_0)\imu = (A,\omega t + \phi_0)_{r,\,\varphi}$$
+
 
 \subsection{Impendanz}
 This is more testing text.
