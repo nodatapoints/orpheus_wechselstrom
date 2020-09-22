@@ -1,6 +1,57 @@
+\subsection{Komplexe Zahlen}
+Normalerweise werden komplexe Zahlen via der imaginären Einheit $\imu^2 \coloneqq -1$ eingeführt.
+Anschließend definiert man dann die komplexen Zahlen über $\mathbb{C} \ni c \coloneqq a + b\cdot \imu$ mit $a,b \in \mathbb{R}$.
+Aus dieser Herangehensweise folgen dann recht schnell die Regeln zum Rechnen mit ebendiesen.
+\begin{align*}
+    c_1 +c_2 &= (a_1 + b_1\cdot \imu) + (a_2 + b_2\cdot \imu) &
+    c_1 \cdot c_2 &= (a_1 + b_1\cdot \imu) \cdot (a_2 + b_2\cdot \imu) \\
+        &= (a_1 + a_2) + (b_1 + b_2)\cdot \imu  &
+        &= a_1a_2 + b_1b_2 \cdot \imu^2 + a_1b_2 \cdot \imu + a_2b_1 \cdot \imu\\
+        &&&= (a_1a_2 - b_1b_2) + (a_1b_2 + a_1b_2) \cdot \imu
+\end{align*}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+  \begin{centering}
+    \includegraphics[width=0.4\textwidth]{philip1.pdf}
+  \end{centering}
+  \caption{Komplexe Zahl $c$ in kartesischen und polaren Koordinaten}
+\end{wrapfigure}
+
+Für den Anwendungsbereich der Wechselstromberechnungen ist es jedoch sinnvoller, komplexe Zahlen als
+Repräsentanten von Punkten im zweidimensionalen Raum zu sehen, welche über die oben genannten Rechenvorschriften nützliche Eigenschaften besitzen, auf die im folgenden eingegangen werden soll.
+
+Man denke sich eine komplexe Zahl $a +b\imu$ als einen Vektor $(a,\,b)_{x,y}$ im kartesischen Koordinatensystem mit X- und Y-Achse.
+Dann sieht man, dass die Addition zweier komplexer Zahlen genau der Vektoraddition entspricht.
+Weiterhin kann man den Vektor auch in einem polaren Koordinatensystem darstellen, in dem man aus $a$ und $b$ den 
+Abstand zum Koordinatenursprung $r$ und den Winkel zur X-Achse $\varphi$ berechnet. Diese Form führt zu einer deutlich einprägsameren Multiplikationsformel.  
+\begin{align*}
+    a&=r \cdot \cos(\varphi) & c_1 &= a_1+b_1\imu = r_1\cos(\varphi_1) + r_1\sin(\varphi_1)\imu  \\
+    b&=r \cdot \sin(\varphi) & c_2 &= a_2+b_2\imu = r_2\cos(\varphi_2) + r_2\sin(\varphi_2)\imu
+\end{align*} \vspace*{-5mm}
+\begin{align*}
+    c_1 \cdot c_2 &= (r_1r_2\cos(\varphi_1)\cos(\varphi_2) - r_1r_2\sin(\varphi_1)\sin(\varphi_2)) \\
+    &\quad + (r_1r_2\cos(\varphi_1)\sin(\varphi_2) + r_1r_2\cos(\varphi_2)\sin(\varphi_1)) \cdot \imu\\
+    &= r_1r_2 \cdot \big(\cos(\varphi_1 + \varphi_2) + \sin(\varphi_1 + \varphi_2)\imu\, \big)
+\end{align*} \vspace*{-5mm}
+\begin{align*}
+    (r_1,\varphi_1)_{r,\,\varphi} \cdot (r_2,\,\varphi_2)_{r,\varphi} = (r_1 \cdot r_2,\, \varphi_1 + \varphi_2)_{r,\varphi}
+\end{align*}
+Die Multiplikation zweier solcher Vektoren dreht den ersten also noch um den Winkel des zweiten weiter, und streckt die Länge $r_1$ um den Faktor $r_2$
+
 \section{Verhaltensdarstellung über Komplexe Zahlen}
+
+Um nun zu verstehen, wie komplexe Zahlen nun hilfreich sein können,
+um die Interaktion von passiven elektrischen Bauteilen mit dem eingehenden Spannungs- oder Stromsignal 
+zu berechnen, benötigt man ein Verständnis der Multiplikation komplexer Zahlen in der Polardarstellung.
+
+
+\begin{align*}
+    Z_1&= (r_1, \varphi_1) & Z_1 \cdot Z_2 = (r_1 \cdot r_2, \varphi_1 + \varphi_2) \\
+    Z_2&= (r_2, \varphi_2)
+\end{align*}
+
 \subsection{Signal}
-This is testing text. 
+Eine kreisförmige Schwingung um den Ursprung lässt sich nun
 
 \subsection{Impendanz}
 This is more testing text.
