@@ -1,0 +1,46 @@
+Passive Bauteile bei Wechselstrom 
+    -> verschieben Phase und skalieren Amplitude  (A über t Diagrammen)                      Eine Frequenz
+    -> (Integration Differentiation)                                                         Sinuswelle
+lineare Zeitinvarianz                                                                        Ein Bauteil
+    -> Signal als Drehung in 2D?
+    -> komplexe Darstellung des Signals
+    -> nur Realteil ist real
+Bauteilsmpendanz als komplexer Faktor
+    -> Herleitung aus DGLs
+    -> Widerstandssorten (Blind, Schein, Real ... )
+    -> komplexe Multiplikation, was das?
+------------------------------------------------------------------------------------------------------
+
+-> Schaltungen
+2-Pol-Schaltung
+   - Parallel                                                                               Eine Frequenz
+   - Reihe
+   - was anderes
+       - Betrachtung über Frequenz -> Intuition Verhalten der Bauteile
+       -> Beispiel L||C und L-C
+
+4-Pol-Schaltung
+   - Anschauung als Filter
+   - RC
+   - RL
+
+LC-Schwingkreis
+   - Resonanz
+   - RLC?
+------------------------------------------------------------------------------------------------------
+
+
+Themen:
+    + Wechselstromkreise
+    + kurze Wiederholung, komplexe Zahlen, insb. Polardarstellung
+    + komplexe Induktivität und Kapazität
+    + Scheinwiderstand, Blindwiderstand, Realwiderstand
+    - Leistung und Arbeit in Wechselstromkreisen
+        -> Komplexe Leistung == UI* == |U|*|I| == S == Effektivleistung
+        -> Leistung == Re I * Re U == p
+        -> Arbeit == Int(p)dt == S*t
+    + sowie einige Beispielrechnungen
+
+Frequenzinvarianz, Phasenverschiebung konstant über Zeit, warum?
+- alles linear (Kirchhoff-Matrix)
+- Erhalten unter Inversion -> Alle Operationen erhalten es
