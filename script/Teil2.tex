@@ -103,11 +103,11 @@ Dies lässt sich auch rein mathematisch motivieren, wenn man $U = RI$ über komp
 % Und somit folgt schließlich für die komplexwertigen Widerstände von Spule und Kondensator
 % $$X_L = \imu \omega L \qquad X_C = \frac{-\imu}{\omega C} = \frac{1}{\imu \omega C}$$
 
-Die verallgemeinerten komplexen Widerstände nennt man die \textit{Impendanz} $Z$ der Bauteile.
-Die Kondensator- und Spulenimpendanzen sind also rein imaginär mit entgegengesetztem Vorzeichen und die Widerstandsimpendanz rein positiv reell.
+Die verallgemeinerten komplexen Widerstände nennt man die \textit{Impedanz} $Z$ der Bauteile.
+Die Kondensator- und Spulenimpedanzen sind also rein imaginär mit entgegengesetztem Vorzeichen und die Widerstandsimpedanz rein positiv reell.
 Aufgrund der oben erklärten linearen Zeitinvarianz passiver Bauteile kann man mit diesen nun genauso weiter rechnen, wie vorher mit den Widerständen.
 
-Der \textit{Wirkwiderstand} ist der Realteil der Gesamtimpendanz. Mit ihm kann man die physikalisch messbare effektive Leistung berechnen, welche die elektrische Energie in andere Energieformen umwandelt, die man dann zur Näherungsweisen Berechnung der geleisteten Arbeit verwenden (nur der genaue Wert bei Vielfachen der Periodendauer.
+Der \textit{Wirkwiderstand} ist der Realteil der Gesamtimpedanz. Mit ihm kann man die physikalisch messbare effektive Leistung berechnen, welche die elektrische Energie in andere Energieformen umwandelt, die man dann zur Näherungsweisen Berechnung der geleisteten Arbeit verwenden (nur der genaue Wert bei Vielfachen der Periodendauer.
 %
 % ggf Übungsaufgabe: ab welcher länge eines 1MHz Signales über ein RC-Reihenglied (100Ohm, 10nF) weicht die effektive Arbeit grob nur noch maximal ein Promille von der genauen Arbeit ab.
 % X = (100 - 100i )Ohm
@@ -136,7 +136,7 @@ Der \textit{Wirkwiderstand} ist der Realteil der Gesamtimpendanz. Mit ihm kann m
         &= I__{eff}^2  t \Re(Z) = I__{eff}U__{eff} t \frac{\Re(Z)}{|Z|} = U(t)  I^*(t) t
 \end{align*}
 
-Der \textit{Blindwiderstand} ist der Imaginärteil der Gesamtimpendanz. Die sich daraus 
+Der \textit{Blindwiderstand} ist der Imaginärteil der Gesamtimpedanz. Die sich daraus 
 ergebende Blindleistung wandelt die elektrische Energie nicht um, sondern speichert sie nur zwischenzeitlich. Bei der Abgabe der gespeicherten elektrischen Energie kann die momentane
 Leistung also auch kurzzeitig negativ werden.
 % MAN SIEHE DIE GGF ZUSATZAUFGABE
@@ -162,3 +162,8 @@ Der Wirkwiderstand kann nie negativ werden. Dies ist physikalisch leicht ersicht
     \frac{1}{Z_1} &= \frac{R_1-I_1\imu}{R_1^2 + I_1^2}
     &\implies&& \Re\qty(\frac{1}{Z_1}) &= \frac{R_1}{R_1^2 + I_1^2} \geqslant 0
 \end{align*}
+%
+% GGF ÜA:
+% Beweise das allgemein für jede belibige Zweipolschaltung von R, C, L
+%
+%
