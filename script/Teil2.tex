@@ -125,19 +125,31 @@ Der \textit{Wirkwiderstand} ist der Realteil der Gesamtimpendanz. Mit ihm kann m
 \begin{align*}
     Z &= \Re(Z) + \imu \Im(Z) = \qty(S, \phi)_{r,\,\varphi} \qquad |Z| = S\\
     P__{eff} &= \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} P(t) \dd{t}
-        = \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} Re(U(t)) Re(I(t)) \dd{t} 
-        = \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} \Re(XI(t)) \Re(I(t)) \dd{t} \\
-        &= \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} S \Re(I(t+\phi) \Re(I(t)) \dd{t} 
+        = \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} \Re(U(t)) \cdot \Re(I(t)) \dd{t} 
+        = \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} \Re(XI(t)) \cdot \Re(I(t)) \dd{t} \\
+        &= \frac{\omega}{2\pi} \int_0^{\frac{2\pi}{\omega}} S \Re(I(t+\phi) \cdot \Re(I(t)) \dd{t} 
         = \frac{1}{2} \hat{I}^2\cdot S\cos(\phi) 
-        = I__{eff}^2 \Re(Z)\\
+        = I__{eff}^2 \Re(Z) = I__{eff}U__{eff} \frac{\Re(Z)}{|Z|} \\
+        &= I__{eff}U__{eff} \cos(\phi)
+        = U(t) \cdot I^*(t)\\
     W__{eff} &= P__{eff} t \approx \int_0^t P(t) \dd{t} = W \\
-        &= I__{eff}^2  t \Re(Z) = I__{eff}U__{eff} t \frac{\Re(Z)}{|Z|}
+        &= I__{eff}^2  t \Re(Z) = I__{eff}U__{eff} t \frac{\Re(Z)}{|Z|} = U(t)  I^*(t) t
 \end{align*}
 
 Der \textit{Blindwiderstand} ist der Imaginärteil der Gesamtimpendanz. Die sich daraus 
 ergebende Blindleistung wandelt die elektrische Energie nicht um, sondern speichert sie nur zwischenzeitlich. Bei der Abgabe der gespeicherten elektrischen Energie kann die momentane
 Leistung also auch kurzzeitig negativ werden.
 % MAN SIEHE DIE GGF ZUSATZAUFGABE
+Stromanbieter berechnen den Energieverbrauch für Wohnungen aber normalerweise über die Effektivwerte von 
+Strom und Spannung, welche zusammenmultipliziert und über die Zeit integriert den Energieverbrauch eines ohmschen Verbrauchers, aber nicht von einem Blindverbraucher ergeben, denn $P = \Re(U) \cdot \Re(I) \neq \Re(U \cdot I)$.
+Deswegen muss man auch mit Kondensatorschrank in der Wohnung Stromkosten bezahlen, obwohl man gar keine Energie Verbraucht (Das ist insofern auch legitim, als dass die daraus folgende Phasenverschiebung im Netz irgendwie ausgeglichen werden muss).
+%
+% Hier ggf ÜA: 
+% Habe Parallelschaltung von R und C. Z.B. 10Ohm/100Ohm [alle Geräte] und 1F [Schrank]
+% 31,5ct/kWh Energiekosten.
+% Wie viel muss ich zu viel Bezahlen wenn ich den ein Jahr lang habe?
+% => ist R vllt sogar irrellevant für die Extrakosten?
+%
 
 Der \textit{Scheinwiderstand} ist schließlich der Betrag der Impendanz.
 Mithilfe des Scheinwiderstandes können die Maximalamplituden oder Effektivwerte des Strom- und Spannungssignals miteinander verglichen werden.
