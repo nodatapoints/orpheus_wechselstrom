@@ -4,8 +4,8 @@ Im folgenden werden wir uns mit Wechselstromkreisen aus idealen \emph{passiven B
 
 Im Gegensatz zu Gleichstromkreisen beschränken wir uns auf Spannungs- und Stromquellen, welche sinusförmige Signale über die Zeit der Form
 \begin{equation}\label{eq:sinusform}
-    U(t) = \hat U\sin(\omega t + \phi_0) \qquad
-    I(t) = \hat I\sin(\omega t + \phi_0)
+    U(t) = \hat U\sin(\omega t + \phi_{0/U}) \qquad
+    I(t) = \hat I\sin(\omega t + \phi_{0/I})
 \end{equation}
 erzeugen. Hier ist $\hat U, \hat I$ die \emph{Amplitude}, $\phi_0$ die \emph{Phase} und  $\omega$ die sogenannte \emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/\tau$ als $T = 1/f = \tau/\omega$.
 Im folgenden wird die Kreisfrequenz $\omega$ beliebig aber fest sein.
@@ -24,7 +24,7 @@ Strom und Spannung sind proportional. Die Kenngröße $R$ wird ebenfalls als \em
 \paragraph*{Der Kondensator}
 folgt der Gleichung
 \begin{equation}\label{eq:C}
-    I = - C\,\dv{U}{t} ~.
+    I = C\,\dv{U}{t} ~.
 \end{equation}
 Der Strom ist proportional zur zeitlichen Änderung der Spannung. Die Größe $C$ wird als \emph{Kapazität} bezeichnet und in Farad ($\si{\farad} = \si{\ampere\second}/\si{\volt}$) angegeben. Häufig wird der Kondensator als Ladungsspeicher $Q = CU$ eingeführt, aber dies ist irreführend: Die Gesamtladung eines Kondensators ist immer 0, da der gleiche Strom ein- wie ausfließt. Stattdessen speichert der Kondensator elektrische Energie in seinem elektrischen Feld. Im Bild der Wechselstromkreise ist die Anschauung hilfreich, dass ein Kondensator Änderungen der Spannung durch Strom entgegenwirkt.
 \paragraph*{Die Spule}
@@ -33,3 +33,50 @@ ist das Gegenbild des Kondensators und folgt nach Selbstinduktion der Gleichung
     U = L\,\dv{I}{t} ~.
 \end{equation}
 Die Spannung ist proportional und entgegengesetzt zur Änderung des Stroms. Die Größe $L$ ist die \emph{Induktivität} und wird in Henry ($\si{\henry} = \si{\volt\second}/\si{\ampere}$) angegeben. Eine Spule speichert elektrische Energie in ihrem Magnetfeld. Man kann sich merken, dass eine Spule Änderungen im Strom durch eine induzierte Spannung entgegenwirkt.
+\subsection{Die zu Grunde liegende Erkenntnis}
+Diese drei Komponenten mögen zunächst sehr verschieden wirken, jedoch sind sie durch zwei Eigenschaften vereint, welche sich später als sehr nützlich erweisen werden: Sie verhalten sich \emph{linear} und \emph{zeitinvariant}. Um dies zu verstehen, müssen die Gleichungen \eqref{eq:R}, \eqref{eq:C}, \eqref{eq:L} als Bedingung zwischen einem zeitlichen Verlauf von $U(t)$ und $I(t)$ gesehen werden.
+
+\def\llra{~\longleftrightarrow~}
+Man betrachte also ein beliebiges der drei Bauteile, sowie einen Verlauf $U(t)$ und $I(t)$, welche die charakteristische Gleichung erfüllen. Wir kürzen dies als $U(t) \llra I(t)$ ab.
+\begin{enumerate}[label=(\arabic*)]
+    \item
+        \[ a\cdot U(t) \llra a \cdot I(t) \]
+        erfüllt ebenfalls die Gleichung, wobei $a$ ein beliebiger Faktor ist.
+    \item Gilt
+        \[ U_1(t) \llra I_1(t) \qquad U_2(t) \llra I_2(t) ~,\]
+        so folgt
+        \[ U_1(t) + U_2(t) \llra I_1(t) + I_2(t) ~. \]
+    \item Es gilt
+        \[ U(t+\tau) \llra I(t+\tau) \]
+        für alle Zeitverschiebungen $\tau$.
+\end{enumerate}
+
+Es lässt sich schnell überprüfen, dass diese Eigenschaften von allen drei Bauteilen erfüllt werden: Ableitungen sowie Skalarmultiplikation sind linear, und keine der charakteristischen Gleichungen enthält eine explizite Zeitabhängigkeit.
+\\
+
+Was bedeuten diese Eigenschaften für unsere sinusförmigen Strom- und Spannung-Verläufe? Zunächst lässt sich aus der Zeitinvarianz folgern, dass wenn $U$ oder $I$ periodisch sind, das jeweils andere auch periodisch sein muss: Verschiebt man beide um sie Periodendauer $T$, so sieht das periodische genau so aus wie vorher -- also muss die um $T$ verschobene andere Größe ebenfalls gleich bleiben. Damit ist sie periodisch.
+
+Zudem sagt uns Zeitinvarianz, dass die absolute Phase $\phi_0$ eines Signals gemäß \eqref{eq:sinusform} irrelevant ist, da ich sie mit $\tau = -\phi_0$ verschwinden lassen kann; nur die relative Phase $\phi$ zwischen $U(t)$ und $I(t)$ bleibt.
+
+Setzt man für alle drei Bauteile sinusförmige Wellenformen ein, so erhält man folgende Lösungen (Im Kopf, Ableiten vom Sinus ist eine Verschiebung um $\pi/2$ !).
+\begin{align*}
+    \text{Widerstand} &: & \underbrace{R\cdot \hat I}_{\hat U}\sin(\omega t)
+    & \llra \hat{I}\sin(\omega t)
+    \\
+    \text{Kondensator} &: & \hat U\sin(\omega t)
+    & \llra \underbrace{\omega C \cdot \hat U}_{\hat{I}}\sin(\omega t + \pi/2)
+    \\
+\text{Spule} &: &  \underbrace{\omega L\cdot \hat I}_{\hat U}\sin(\omega t + \pi/2)
+    & \llra \hat{I}\sin(\omega t)
+\end{align*}
+Mittels den Eigenschaften der Linearität und Zeitinvarianz können wir dies in eine einheitliche Form bringen, indem wir die Rechte Seite zu $I(t) = \hat I\sin(\omega t)$ umformen.
+\begin{align*}
+    \text{Widerstand} &: & U(t) = R \cdot \hat I\sin(\omega t)
+    & \llra \hat{I}\sin(\omega t)
+    \\
+    \text{Kondensator} &: & U(t) = {1\over \omega C}\cdot  \hat I\sin(\omega t - \pi/2)
+    & \llra \hat{I}\sin(\omega t)
+    \\
+\text{Spule} &: &  U(t) = \omega L \cdot \hat I\sin(\omega t + \pi/2)
+    & \llra \hat{I}\sin(\omega t)
+\end{align*}
