@@ -56,3 +56,58 @@ Die Wechselstromrechenmethode ist hier also in der Lage, die Effekte solcher Sch
     Z_6 &\stackrel{!}{=} 0 &\implies&& \il &= -\ic &\implies&& \omega^2 &= \frac{1}{LC} \eqqcolon f_{g}^2\\
     Z_8 &\stackrel{!}{=} \infty &\implies&& \frac{1}{\imu \omega L} &= -\imu \omega C &\implies&& \omega^2 &= \frac{1}{LC} = f_{g}^2\\
 \end{align*}
+
+\subsection*{Vierpole}
+\begin{center}\includegraphics[width=.6\textwidth]{placeholder.png}\end{center}~\\
+%
+% Ne Figure mit 4 Subfigures, wenn du dass hinbekommst.
+% $RC$-Hochpass,$RC$-Tiefpass,$RL$-Tiefpass,$RL$-Hochpass.
+% mit U_e als Eingangsspannung und U_a als Ausgangsspannung.
+In der Abbildung sieht man (v.l.n.r.) einen $RC$-Hochpass, einen $RC$-Tiefpass, einen $RL$-Tiefpass
+und einen $RL$-Hochpass.
+Diese können wir schlicht als Spannungsteiler auffassen und deren Ausgangspannung in Abhängigkeit der Eingangsspannung und der Frequenz bestimmen\footnote{
+Man siehe auch \url{https://physik.uni-greifswald.de/storages/uni-greifswald/fakultaet/mnf/physik/Studium/Elektronik/elektronik-vorlesung.pdf}, Kapitel 4 für eine umfassendere und tiefergehende Behandlung von Schaltungen mit passiven Bauelementen}.
+Man definiert $\Omega_C = \omega RC, \, \Omega_L = \omega\frac{L}{R}$. Dies entspricht einer auf die Grenzfrequenz genormten Einheitslosen Kreisfrequenz.
+\begin{align}
+    \text{RC-Hochpass:} && 
+    \frac{U_{a,1}}{U_e} = \frac{R}{X_C + R}   &=
+        \frac{1}{1 - \imu \frac{1}{\omega RC}} =
+        \frac{\imu \Omega_C}{1 + \imu \Omega_C} &\quad
+        \abs{\frac{U_{a,1}}{U_e}} &= \frac{\Omega_C}{\sqrt{1+\Omega_C^2}}\\
+    \text{RC-Tiefpass:} && 
+    \frac{U_{a,2}}{U_e} = \frac{X_C}{X_C + R} &= 
+        \frac{1}{1 + \imu \omega RC} =
+        \frac{1}{1 + \imu \Omega_C} &\quad
+        \abs{\frac{U_{a,2}}{U_e}} &= \frac{1}{\sqrt{1+\Omega_C^2}}\\
+    \text{RL-Tiefpass:} && 
+    \frac{U_{a,3}}{U_e} = \frac{R}{X_L + R} &= 
+        \frac{1}{1 + \imu  \frac{\omega L}{R}} =
+        \frac{1}{1 + \imu \Omega_L} &\quad
+        \abs{\frac{U_{a,3}}{U_e}} &= \frac{1}{\sqrt{1+\Omega_L^2}}\\
+    \text{RL-Hochpass:} && 
+    \frac{U_{a,4}}{U_e} = \frac{X_L}{X_L + R} &= 
+        \frac{1}{1 - \imu \frac{R}{\omega L}} =
+        \frac{\imu \Omega_L}{1 + \imu \Omega_L} &\quad
+        \abs{\frac{U_{a,4}}{U_e}} &= \frac{\Omega_L}{\sqrt{1+\Omega_L^2}} 
+\end{align}
+Der Betrag der Übertragsfunktion stellt hierbei das Verhältnis der Eingangsspannungsamplitude und der Ausgangsspannungsamplitude dar. Eine Phasenverschiebung existiert, ist aber hier nicht weiter wichtig.
+
+Die Tiefpässe skalieren invers proportional zu $\sqrt{1 + \Omega^2}$. Da $\Omega \propto \omega$ steigt die Wurzel an, für große Frequenzen grob linear, für kleine Frequenzen weniger.
+Die Übertragsfunktion ist also maximal und gleich 1 bei $\Omega = 1$ und fällt dann immer weiter, um sich bei großen Frequenzen wie $1/\Omega$ gegen 0 zu nähern.
+Die Hochpässe besitzen die gleiche Übertragsfunktion, noch skaliert mit $\Omega$.
+Für geringe $\Omega$ ist also auch die Übertragsfunktion klein, während sie sich bei großen Frequenzen an 1 annähert.
+Zu beachten ist dabei das Verhalten der Pässe bei inverser normierter Kreisfrequenz.
+\begin{align}
+    \abs{\frac{U_{a,\text{Tief}}(U_e, \frac{1}{\Omega})}{U_e}} &= \frac{1}{\sqrt{1+\frac{1}{\Omega^2}}}
+    = \frac{1}{\sqrt{\frac{1}{\Omega^2}}\sqrt{\Omega^2+1}} = \frac{\Omega}{\sqrt{\Omega^2+1}} 
+    = \abs{\frac{U_{a,\text{Hoch}}(U_e, \Omega)}{U_e}}\\
+    \abs{\frac{U_{a,\text{Hoch}}(U_e, \frac{1}{\Omega})}{U_e}} &
+    = \frac{\frac{1}{\Omega^2}}{\sqrt{1+\frac{1}{\Omega^2}}}
+    = \frac{1}{\sqrt{{\Omega^2}}\sqrt{1+\frac{1}{\Omega^2}}} = \frac{1}{\sqrt{\Omega^2+1}} 
+    = \abs{\frac{U_{a,\text{Tief}}(U_e, \Omega)}{U_e}}
+\end{align}
+Ein solcher Hochpass verhält sich also bezüglich der Amplitudenskalierung bei einer Frequenz $1/\Omega$ genau so, wie der äquivalente Tiefpass bei $\Omega$.
+Die Phasenverschiebung ist jedoch umgekehrt. Eine Phasenerhöhung $\Delta \phi$ beim Hochpass bei $1/\Omega$ entspricht einer genau entgegengesetzten Phasenverringerung um $-\Delta \phi$ beim Tiefpass bei $\Omega$.
+%
+% ggf. ÜA: Beweise das.
+%
