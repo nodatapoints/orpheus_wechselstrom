@@ -4,14 +4,32 @@ Im folgenden werden wir uns mit Wechselstromkreisen aus idealen \emph{passiven B
 
 Im Gegensatz zu Gleichstromkreisen beschränken wir uns auf Spannungs- und Stromquellen, welche sinusförmige Signale über die Zeit der Form
 \begin{equation}\label{eq:sinusform}
-    U(t) = U_0\sin(\omega t + \phi_0) \qquad
-    I(t) = I_0\sin(\omega t + \phi_0)
+    U(t) = \hat U\sin(\omega t + \phi_0) \qquad
+    I(t) = \hat I\sin(\omega t + \phi_0)
 \end{equation}
-erzeugen. Hier ist $U_0, I_0$ die \emph{Amplitude}, $\phi_0$ die \emph{Phase} und  $\omega$ die sogenannte \emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/\tau$ als $T = 1/f = \tau/\omega$.
+erzeugen. Hier ist $\hat U, \hat I$ die \emph{Amplitude}, $\phi_0$ die \emph{Phase} und  $\omega$ die sogenannte \emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/\tau$ als $T = 1/f = \tau/\omega$.
 Im folgenden wird die Kreisfrequenz $\omega$ beliebig aber fest sein.
 
 Diese Einschränkungen scheinen zunächst sehr limitiert, doch es wird sich durch diese Annahmen offenbaren, wie sich die scheinbar verschiedenen Bauteile sich mathematisch vereinen lassen. Dieses schöne und anschauliche Modell legt die Grundlage für viele komplexere Themen der Elektronik. Wir hoffen mit unserem Kurs einen Einblick und vor allem eine Intuition für Wechselstromkreise zu schaffen, welche die unterliegende Struktur offenbart.
 
 \subsection{Die Bauteile}
-\paragraph*{Der Widerstand}
+Jedes der drei Bauteile ist symmetrisch und besitzt zwei Kontakte. Die \emph{Spannung} $U$ über dem Bauteil ist die elektrische Potentialdifferenz zwischen beiden Kontakten. Man sagt, dass die Spannung $U$ \emph{über dem Bauteil abfällt}. Der \emph{Strom} $I$ fließt durch das Bauteil von einem in den anderen Kontakt -- dabei muss jedoch eine Richtung gewählt werden, damit das Vorzeichen eindeutig ist. Als Konvention werden wir Strom und Spannung so angeben, dass ein Strom vom höheren zum geringeren Potential immer positiv ist.
 
+Jedes Bauteil besitzt eine eigene Kenngröße, welche das Verhalten und $U$ und $I$ und somit das Bauelement selbst vollständig charakterisiert. Wir nehmen alle Bauteile als ideal an, und gehen nicht auf den Aufbau ein.
+\paragraph*{Der Widerstand} folgt dem ohmschen Gesetz
+\begin{equation}\label{eq:R}
+    U = R\cdot I ~.
+\end{equation}
+Strom und Spannung sind proportional. Die Kenngröße $R$ wird ebenfalls als \emph{Widerstand} bezeichnet und in Ohm ($\si{\ohm} = \si{V}/\si{A}$) angegeben. Ein Widerstand wandelt elektrische Leistung in Wärmeleistung um.
+\paragraph*{Der Kondensator}
+folgt der Gleichung
+\begin{equation}\label{eq:C}
+    I = C\,\dv{U}{t} ~.
+\end{equation}
+Der Strom ist proportional zur zeitlichen Änderung der Spannung. Die Größe $C$ wird als \emph{Kapazität} bezeichnet und in Farad ($\si{\farad} = \si{\ampere\second}/\si{\volt}$) angegeben. Häufig wird der Kondensator als Ladungsspeicher $Q = CU$ eingeführt, aber dies ist irreführend: Die Gesamtladung eines Kondensators ist immer 0, da der gleiche Strom ein- wie ausfließt. Stattdessen speichert der Kondensator elektrische Energie in seinem elektrischen Feld. Im Bild der Wechselstromkreise ist die Anschauung hilfreich, dass ein Kondensator Änderungen der Spannung durch Strom entgegenwirkt.
+\paragraph*{Die Spule}
+ist das Gegenbild des Kondensators und folgt nach Selbstinduktion der Gleichung
+\begin{equation}\label{eq:L}
+    U = - L\,\dv{I}{t} ~.
+\end{equation}
+Die Spannung ist proportional und entgegengesetzt zur Änderung des Stroms. Die Größe $L$ ist die \emph{Induktivität} und wird in Henry ($\si{\henry} = \si{\volt\second}/\si{\ampere}$) angegeben. Eine Spule speichert elektrische Energie in ihrem Magnetfeld. Man kann sich merken, dass eine Spule Änderungen im Strom durch eine induzierte Spannung entgegenwirkt.
