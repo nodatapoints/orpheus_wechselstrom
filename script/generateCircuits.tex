@@ -1,0 +1,120 @@
+\documentclass[margin=0mm]{standalone}
+\usepackage{siunitx}
+\usepackage[EFvoltages, europeanresistors]{circuitikz}
+%\usepackage[symbols]{circuitikz}
+\usepackage{tikz}
+\begin{document}
+
+% % <------ normale line width
+%\begin{circuitikz}[>=latex, 
+%thin, 
+%common/.style={fill=white}
+%]
+%  \draw
+%  (0,0) node[] (UL) {} % <------
+%  to[short, o-*] (3,0) 
+%  to[C, l={C}, *-*] (3,2)
+%  (3,0) to[short, *-o] (4,0) node[] (UR){} % <------
+%  (0,2) node[] (OL) {} % <------
+%  to[short,o-](0.4,2) 
+%  to[R, l_={R}, -](1.5,2)  % <---
+%  to[L, l_={L},-*](3,2)      % <--
+%  (3,2) to[short, *-o] (4,2) node[] (OR){}; % <------
+%
+%\tikzset{every path/.style={very thin}}
+%\draw[<->] (UL) -- (OL) node[midway]{p$_\textsf{in}$};
+%\draw[<->] (UR) -- (OR) node[midway]{p$_\textsf{out}$};
+%\draw[->, transform canvas={yshift=5mm}] (OL.center) -- +(7mm, 0) node[ anchor=west]{q$_\textsf{in}$};
+%\draw[<-, transform canvas={yshift=5mm}] (OR.center) -- +(-7mm, 0) node[ anchor=east]{p$_\textsf{out}$};
+%\end{circuitikz}
+
+\ctikzset{bipoles/thickness=1}
+% \begin{circuitikz}[>=latex]
+%   \draw
+%   (0,0) 
+%   to[R, o-](0,2)
+%   to[C,-o](0,4);
+%   \draw (0, -0.5) node{$Z_1$};
+
+%   \draw
+%   (2,0) to[short, o-] (2,1) -- (1.5,1) 
+%   to[R, -] (1.5,3) -- (2,3) to[short, -o] (2,4);
+%   \draw
+%   (2,1) to[short, *-] (2.5,1) to[C,-] (2.5,3) to[short, -*] (2,3);
+%   \draw (2, -0.5) node{$Z_2$};
+
+%   \draw
+%   (4,0) 
+%   to[R, o-](4,2)
+%   to[L,-o](4,4);
+%   \draw (4, -0.5) node{$Z_3$};
+
+%   \draw
+%   (2+4,0) to[short, o-] (2+4,1) -- (1.5+4,1) 
+%   to[R, -] (1.5+4,3) -- (2+4,3) to[short, -o] (2+4,4);
+%   \draw
+%   (2+4,1) to[short, *-] (2.5+4,1) to[L,-] (2.5+4,3) to[short, -*] (2+4,3);
+%   \draw (6, -0.5) node{$Z_4$};
+
+%   \draw
+%   (8,0) 
+%   to[C, o-](8,1.333)
+%   to[R, -](8,2.666)
+%   to[L,-o](8,4);
+%   \draw (8, -0.5) node{$Z_5$};
+% \end{circuitikz}
+
+\begin{circuitikz}[>=latex]
+  \draw
+  (0.5,0) 
+  to[C, o-](0.5,1.333)
+  to[R, -](0.5,2.666)
+  to[L,-o](0.5,4);
+  \draw (0.5, -0.5) node{$Z_5$};
+
+  \draw
+  (2,0) 
+  to[C, o-](2,2)
+  to[L,-o](2,4);
+  \draw (2, -0.5) node{$Z_6$};
+
+  \draw
+  (4,0) to[short, o-] (4,1) -- (3.5,1) 
+  to[L, -] (3.5,3) -- (4,3) to[short, -o] (4,4);
+  \draw
+  (4,1) to[short, *-] (4.5,1) to[C,-] (4.5,3) to[short, -*] (4,3);
+  \draw (4, -0.5) node{$Z_7$};
+
+  \draw
+  (7,0) to[short, o-] (7,1) -- (6,1) 
+  to[L, -] (6,3) -- (7,3) to[short, -o] (7,4);
+  \draw
+  (7,1) -- (8,1) to[C,-] (8,3) -- (7,3);
+  \draw
+  (7,1) to[R,*-*]  (7,3);
+  \draw (7, -0.5) node{$Z_8$};
+\end{circuitikz}
+
+% \begin{circuitikz}[>=latex]
+%   \draw (0,0) node[font=\small, anchor=270]{$U_e$} 
+%     to[R, o-*] ++(2, 0) to[short, -o] 
+%     ++(0.5,0) node[font=\small, anchor=270]{$U_{a,1}$}
+%     ++(-0.5,0) to[C, -] ++(0,-2) node[tlground]{};
+
+%   \draw (3.5,0) node[font=\small, anchor=270]{$U_e$} 
+%     to[C, o-*] ++(2, 0) to[short, -o] 
+%     ++(0.5,0) node[font=\small, anchor=270]{$U_{a,2}$}
+%     ++(-0.5,0) to[R, -] ++(0,-2) node[tlground]{};
+
+%   \draw (7,0) node[font=\small, anchor=270]{$U_e$} 
+%     to[R, o-*] ++(2, 0) to[short, -o] 
+%     ++(0.5,0) node[font=\small, anchor=270]{$U_{a,3}$}
+%     ++(-0.5,0) to[L, -] ++(0,-2) node[tlground]{};
+
+%   \draw (10.5,0) node[font=\small, anchor=270]{$U_e$} 
+%     to[L, o-*] ++(2, 0) to[short, -o] 
+%     ++(0.5,0) node[font=\small, anchor=270]{$U_{a,4}$}
+%     ++(-0.5,0) to[R, -] ++(0,-2) node[tlground]{};
+% \end{circuitikz}
+
+\end{document}
