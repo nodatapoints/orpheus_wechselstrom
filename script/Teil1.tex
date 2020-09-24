@@ -37,7 +37,10 @@ Die Spannung ist proportional und entgegengesetzt zur Änderung des Stroms. Die 
 Diese drei Komponenten mögen zunächst sehr verschieden wirken, jedoch sind sie durch zwei Eigenschaften vereint, welche sich später als sehr nützlich erweisen werden: Sie verhalten sich \emph{linear} und \emph{zeitinvariant}. Um dies zu verstehen, müssen die Gleichungen \eqref{eq:R}, \eqref{eq:C}, \eqref{eq:L} als Bedingung zwischen einem zeitlichen Verlauf von $U(t)$ und $I(t)$ gesehen werden.
 
 \def\llra{~\longleftrightarrow~}
-Man betrachte also ein beliebiges der drei Bauteile, sowie einen Verlauf $U(t)$ und $I(t)$, welche die charakteristische Gleichung erfüllen. Wir kürzen dies als $U(t) \llra I(t)$ ab.
+Man betrachte also ein beliebiges der drei Bauteile, sowie einen Verlauf $U(t)$ und $I(t)$, welche die charakteristische Gleichung erfüllen. Wir kürzen dies als
+$$U(t) \llra I(t)$$
+ab. Damit drücken wir also aus, dass der Verlauf $U(t)$ links mit dem Verlauf $I(t)$ rechts diesem bestimmten Bauteil genügt.
+Ist dies der Fall, so folgt:
 \begin{enumerate}[label=(\arabic*)]
     \item
         \[ a\cdot U(t) \llra a \cdot I(t) \]
@@ -80,3 +83,15 @@ Mittels den Eigenschaften der Linearität und Zeitinvarianz können wir dies in 
 \text{Spule} &: &  U(t) = \omega L \cdot \hat I\sin(\omega t + \pi/2)
     & \llra \hat{I}\sin(\omega t)
 \end{align*}
+Jedes der Bauteile lässt sich im Wechselstromkreis einer festen Kreisfrequenz $\omega$ also allein durch einen bestimmten Absolutbetrag $\hat U / \hat I$ sowie einer Phasenverschiebung $\phi$ darstellen.
+\begin{center}
+    \begin{tabular}{rcc}
+        Bauteil & $\hat U / \hat I$ & $\phi$ \\
+        \hline
+        Widerstand & $R$ & 0 \\
+        Kondensator & ${1/\omega C}$ & $-\pi/2$ \\
+        Spule & $\omega L$ & $\pi/2$
+    \end{tabular}
+\end{center}
+
+Weiterhin wissen wir so, dass beliebige Spannungs- und Stromverläufe $U(t), I(t)$ innerhalb jedes Wechselstromkreises sinusförmig mit gleicher Kreisfrequenz $\omega$ sein müssen, da jedes Bauteil die Sinusform erhält und lineare Kombinationen von Sinen ebenfalls eine Sinusform gleicher Frequenz ergeben. Demnach sind in einem Wechselstromkreis fester Kreisfrequenz $\omega$ ebenfalls jegliche Strom- und Spannungsformen ausgezeichnet durch einen Betrag (die Amplitude) und einer Phase (welche sich auf eine beliebige Bezugswellenform bezieht, nach Zeitinvarianz).
