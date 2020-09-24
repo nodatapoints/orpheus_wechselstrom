@@ -1,45 +1,70 @@
 \section{Wechselstromkreise}
 \subsection{Grundlagen}
-Im folgenden werden wir uns mit Wechselstromkreisen aus idealen \emph{passiven Bauelementen} beschäftigen, welche Widerstand, Spule und Kondensator sind. Diese Elemente werden als \emph{passiv} bezeichnet, da sie kein Signal verstärken können.
+Im folgenden werden wir uns mit Wechselstromkreisen aus idealen \emph{passiven Bauelementen} beschäftigen, welche
+Widerstand, Spule und Kondensator sind. Diese Elemente werden als \emph{passiv} bezeichnet, da sie kein Signal
+verstärken können.
 
-Im Gegensatz zu Gleichstromkreisen beschränken wir uns auf Spannungs- und Stromquellen, welche sinusförmige Signale über die Zeit der Form
+Im Gegensatz zu Gleichstromkreisen beschränken wir uns auf Spannungs- und Stromquellen, welche sinusförmige Signale über
+die Zeit der Form
 \begin{equation}\label{eq:sinusform}
     U(t) = \hat U\sin(\omega t + \phi_{0/U}) \qquad
     I(t) = \hat I\sin(\omega t + \phi_{0/I})
 \end{equation}
-erzeugen. Hier ist $\hat U, \hat I$ die \emph{Amplitude}, $\phi_0$ die \emph{Phase} und  $\omega$ die sogenannte \emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/\tau$ als $T = 1/f = \tau/\omega$.
+erzeugen. Hier ist $\hat U, \hat I$ die \emph{Amplitude}, $\phi_0$ die \emph{Phase} und  $\omega$ die sogenannte
+\emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/\tau$ als $T = 1/f = \tau/\omega$.
 Im folgenden wird die Kreisfrequenz $\omega$ beliebig aber fest sein.
 
-Diese Einschränkungen scheinen zunächst sehr limitiert, doch es wird sich durch diese Annahmen offenbaren, wie sich die scheinbar verschiedenen Bauteile sich mathematisch vereinen lassen. Dieses schöne und anschauliche Modell legt die Grundlage für viele komplexere Themen der Elektronik. Wir hoffen mit unserem Kurs einen Einblick und vor allem eine Intuition für Wechselstromkreise zu schaffen, welche die unterliegende Struktur offenbart.
+Diese Einschränkungen scheinen zunächst sehr limitiert, doch es wird sich durch diese Annahmen offenbaren, wie sich die
+scheinbar verschiedenen Bauteile sich mathematisch vereinen lassen. Dieses schöne und anschauliche Modell legt die
+Grundlage für viele komplexere Themen der Elektronik. Wir hoffen mit unserem Kurs einen Einblick und vor allem eine
+Intuition für Wechselstromkreise zu schaffen, welche die unterliegende Struktur offenbart.
 
 \subsection{Die Bauteile}
-Jedes der drei Bauteile ist symmetrisch und besitzt zwei Kontakte. Die \emph{Spannung} $U$ über dem Bauteil ist die elektrische Potentialdifferenz zwischen beiden Kontakten. Man sagt, dass die Spannung $U$ \emph{über dem Bauteil abfällt}. Der Strom $I$ fließt durch das Bauteil von einem in den anderen Kontakt -- dabei muss jedoch eine Richtung gewählt werden, damit das Vorzeichen eindeutig ist. Als Konvention werden wir Strom und Spannung so angeben, dass ein Strom vom höheren zum geringeren Potential immer positiv ist.
+Jedes der drei Bauteile ist symmetrisch und besitzt zwei Kontakte. Die \emph{Spannung} $U$ über dem Bauteil ist die
+elektrische Potentialdifferenz zwischen beiden Kontakten. Man sagt, dass die Spannung $U$ \emph{über dem Bauteil
+abfällt}. Der Strom $I$ fließt durch das Bauteil von einem in den anderen Kontakt -- dabei muss jedoch eine Richtung
+gewählt werden, damit das Vorzeichen eindeutig ist. Als Konvention werden wir Strom und Spannung so angeben, dass ein
+Strom vom höheren zum geringeren Potential immer positiv ist.
 
-Jedes Bauteil besitzt eine eigene Kenngröße, welche das Verhalten und $U$ und $I$ und somit das Bauelement selbst vollständig charakterisiert. Wir nehmen alle Bauteile als ideal an, und gehen nicht auf den Aufbau ein.
+Jedes Bauteil besitzt eine eigene Kenngröße, welche das Verhalten und $U$ und $I$ und somit das Bauelement selbst
+vollständig charakterisiert. Wir nehmen alle Bauteile als ideal an, und gehen nicht auf den Aufbau ein.
 \paragraph*{Der Widerstand} folgt dem ohmschen Gesetz
 \begin{equation}\label{eq:R}
     U = R\cdot I ~.
 \end{equation}
-Strom und Spannung sind proportional. Die Kenngröße $R$ wird ebenfalls als \emph{Widerstand} bezeichnet und in Ohm ($\si{\ohm} = \si{V}/\si{A}$) angegeben. Ein Widerstand wandelt elektrische Leistung in Wärmeleistung um.
+Strom und Spannung sind proportional. Die Kenngröße $R$ wird ebenfalls als \emph{Widerstand} bezeichnet und in Ohm
+($\si{\ohm} = \si{V}/\si{A}$) angegeben. Ein Widerstand wandelt elektrische Leistung in Wärmeleistung um.
 \paragraph*{Der Kondensator}
 folgt der Gleichung
 \begin{equation}\label{eq:C}
     I = C\,\dv{U}{t} ~.
 \end{equation}
-Der Strom ist proportional zur zeitlichen Änderung der Spannung. Die Größe $C$ wird als \emph{Kapazität} bezeichnet und in Farad ($\si{\farad} = \si{\ampere\second}/\si{\volt}$) angegeben. Häufig wird der Kondensator als Ladungsspeicher $Q = CU$ eingeführt, aber dies ist irreführend: Die Gesamtladung eines Kondensators ist immer 0, da der gleiche Strom ein- wie ausfließt. Stattdessen speichert der Kondensator elektrische Energie in seinem elektrischen Feld. Im Bild der Wechselstromkreise ist die Anschauung hilfreich, dass ein Kondensator Änderungen der Spannung durch Strom entgegenwirkt.
+Der Strom ist proportional zur zeitlichen Änderung der Spannung. Die Größe $C$ wird als \emph{Kapazität} bezeichnet und
+in Farad ($\si{\farad} = \si{\ampere\second}/\si{\volt}$) angegeben. Häufig wird der Kondensator als Ladungsspeicher $Q
+= CU$ eingeführt, aber dies ist irreführend: Die Gesamtladung eines Kondensators ist immer 0, da der gleiche Strom ein-
+wie ausfließt. Stattdessen speichert der Kondensator elektrische Energie in seinem elektrischen Feld. Im Bild der
+Wechselstromkreise ist die Anschauung hilfreich, dass ein Kondensator Änderungen der Spannung durch Strom entgegenwirkt.
 \paragraph*{Die Spule}
 ist das Gegenbild des Kondensators und folgt nach Selbstinduktion der Gleichung
 \begin{equation}\label{eq:L}
     U = L\,\dv{I}{t} ~.
 \end{equation}
-Die Spannung ist proportional und entgegengesetzt zur Änderung des Stroms. Die Größe $L$ ist die \emph{Induktivität} und wird in Henry ($\si{\henry} = \si{\volt\second}/\si{\ampere}$) angegeben. Eine Spule speichert elektrische Energie in ihrem Magnetfeld. Man kann sich merken, dass eine Spule Änderungen im Strom durch eine induzierte Spannung entgegenwirkt.
+Die Spannung ist proportional und entgegengesetzt zur Änderung des Stroms. Die Größe $L$ ist die \emph{Induktivität} und
+wird in Henry ($\si{\henry} = \si{\volt\second}/\si{\ampere}$) angegeben. Eine Spule speichert elektrische Energie in
+ihrem Magnetfeld. Man kann sich merken, dass eine Spule Änderungen im Strom durch eine induzierte Spannung
+entgegenwirkt.
 \subsection{Die zu Grunde liegende Erkenntnis}
-Diese drei Komponenten mögen zunächst sehr verschieden wirken, jedoch sind sie durch zwei Eigenschaften vereint, welche sich später als sehr nützlich erweisen werden: Sie verhalten sich \emph{linear} und \emph{zeitinvariant}. Um dies zu verstehen, müssen die Gleichungen \eqref{eq:R}, \eqref{eq:C}, \eqref{eq:L} als Bedingung zwischen einem zeitlichen Verlauf von $U(t)$ und $I(t)$ gesehen werden.
+Diese drei Komponenten mögen zunächst sehr verschieden wirken, jedoch sind sie durch zwei Eigenschaften vereint, welche
+sich später als sehr nützlich erweisen werden: Sie verhalten sich \emph{linear} und \emph{zeitinvariant}. Um dies zu
+verstehen, müssen die Gleichungen \eqref{eq:R}, \eqref{eq:C}, \eqref{eq:L} als Bedingung zwischen einem zeitlichen
+Verlauf von $U(t)$ und $I(t)$ gesehen werden.
 
 \def\llra{~\longleftrightarrow~}
-Man betrachte also ein beliebiges der drei Bauteile, sowie einen Verlauf $U(t)$ und $I(t)$, welche die charakteristische Gleichung erfüllen. Wir kürzen dies als
+Man betrachte also ein beliebiges der drei Bauteile, sowie einen Verlauf $U(t)$ und $I(t)$, welche die charakteristische
+Gleichung erfüllen. Wir kürzen dies als
 $$U(t) \llra I(t)$$
-ab. Damit drücken wir also aus, dass der Verlauf $U(t)$ links mit dem Verlauf $I(t)$ rechts diesem bestimmten Bauteil genügt.
+ab. Damit drücken wir also aus, dass der Verlauf $U(t)$ links mit dem Verlauf $I(t)$ rechts diesem bestimmten Bauteil
+genügt.
 Ist dies der Fall, so folgt:
 \begin{enumerate}[label=(\arabic*)]
     \item
@@ -54,14 +79,21 @@ Ist dies der Fall, so folgt:
         für alle Zeitverschiebungen $\tau$.
 \end{enumerate}
 
-Es lässt sich schnell überprüfen, dass diese Eigenschaften von allen drei Bauteilen erfüllt werden: Ableitungen sowie Skalarmultiplikation sind linear, und keine der charakteristischen Gleichungen enthält eine explizite Zeitabhängigkeit.
+Es lässt sich schnell überprüfen, dass diese Eigenschaften von allen drei Bauteilen erfüllt werden: Ableitungen sowie
+Skalarmultiplikation sind linear, und keine der charakteristischen Gleichungen enthält eine explizite Zeitabhängigkeit.
 \\
 
-Was bedeuten diese Eigenschaften für unsere sinusförmigen Strom- und Spannung-Verläufe? Zunächst lässt sich aus der Zeitinvarianz folgern, dass wenn $U$ oder $I$ periodisch sind, das jeweils andere auch periodisch sein muss: Verschiebt man beide um sie Periodendauer $T$, so sieht das periodische genau so aus wie vorher -- also muss die um $T$ verschobene andere Größe ebenfalls gleich bleiben. Damit ist sie periodisch.
+Was bedeuten diese Eigenschaften für unsere sinusförmigen Strom- und Spannung-Verläufe? Zunächst lässt sich aus der
+Zeitinvarianz folgern, dass wenn $U$ oder $I$ periodisch sind, das jeweils andere auch periodisch sein muss: Verschiebt
+man beide um sie Periodendauer $T$, so sieht das periodische genau so aus wie vorher -- also muss die um $T$ verschobene
+andere Größe ebenfalls gleich bleiben. Damit ist sie periodisch.
 
-Zudem sagt uns Zeitinvarianz, dass die absolute Phase $\phi_0$ eines Signals gemäß \eqref{eq:sinusform} irrelevant ist, da ich sie mit $\tau = -\phi_0$ verschwinden lassen kann; nur die relative Phase $\phi$ zwischen $U(t)$ und $I(t)$ bleibt.
+Zudem sagt uns Zeitinvarianz, dass die absolute Phase $\phi_0$ eines Signals gemäß \eqref{eq:sinusform} irrelevant ist,
+da ich sie mit $\tau = -\phi_0$ verschwinden lassen kann; nur die relative Phase $\phi$ zwischen $U(t)$ und $I(t)$
+bleibt.
 
-Setzt man für alle drei Bauteile sinusförmige Wellenformen ein, so erhält man folgende Lösungen (Im Kopf, Ableiten vom Sinus ist eine Verschiebung um $\pi/2$ !).
+Setzt man für alle drei Bauteile sinusförmige Wellenformen ein, so erhält man folgende Lösungen (Im Kopf, Ableiten vom
+Sinus ist eine Verschiebung um $\pi/2$ !).
 \begin{align*}
     \text{Widerstand} &: & \underbrace{R\cdot \hat I}_{\hat U}\sin(\omega t)
     & \llra \hat{I}\sin(\omega t)
@@ -72,7 +104,8 @@ Setzt man für alle drei Bauteile sinusförmige Wellenformen ein, so erhält man
 \text{Spule} &: &  \underbrace{\omega L\cdot \hat I}_{\hat U}\sin(\omega t + \pi/2)
     & \llra \hat{I}\sin(\omega t)
 \end{align*}
-Mittels den Eigenschaften der Linearität und Zeitinvarianz können wir dies in eine einheitliche Form bringen, indem wir die Rechte Seite zu $I(t) = \hat I\sin(\omega t)$ umformen.
+Mittels den Eigenschaften der Linearität und Zeitinvarianz können wir dies in eine einheitliche Form bringen, indem wir
+die Rechte Seite zu $I(t) = \hat I\sin(\omega t)$ umformen.
 \begin{align*}
     \text{Widerstand} &: & U(t) = R \cdot \hat I\sin(\omega t)
     & \llra \hat{I}\sin(\omega t)
@@ -83,7 +116,8 @@ Mittels den Eigenschaften der Linearität und Zeitinvarianz können wir dies in 
 \text{Spule} &: &  U(t) = \omega L \cdot \hat I\sin(\omega t + \pi/2)
     & \llra \hat{I}\sin(\omega t)
 \end{align*}
-Jedes der Bauteile lässt sich im Wechselstromkreis einer festen Kreisfrequenz $\omega$ also allein durch einen bestimmten Absolutbetrag $\hat U / \hat I$ sowie einer Phasenverschiebung $\phi$ darstellen.
+Jedes der Bauteile lässt sich im Wechselstromkreis einer festen Kreisfrequenz $\omega$ also allein durch einen
+bestimmten Absolutbetrag $\hat U / \hat I$ sowie einer Phasenverschiebung $\phi$ darstellen.
 \begin{center}
     \begin{tabular}{rcc}
         Bauteil & $\hat U / \hat I$ & $\phi$ \\
@@ -94,4 +128,10 @@ Jedes der Bauteile lässt sich im Wechselstromkreis einer festen Kreisfrequenz $
     \end{tabular}
 \end{center}
 
-Weiterhin wissen wir so, dass beliebige Spannungs- und Stromverläufe $U(t), I(t)$ innerhalb jedes Wechselstromkreises sinusförmig mit gleicher Kreisfrequenz $\omega$ sein müssen, da jedes Bauteil die Sinusform erhält und lineare Kombinationen von Sinen ebenfalls eine Sinusform gleicher Frequenz ergeben. Demnach sind in einem Wechselstromkreis fester Kreisfrequenz $\omega$ ebenfalls jegliche Strom- und Spannungsformen ausgezeichnet durch einen Betrag (die Amplitude) und einer Phase (welche sich auf eine beliebige Bezugswellenform bezieht, nach Zeitinvarianz).
+Weiterhin wissen wir so, dass beliebige Spannungs- und Stromverläufe $U(t), I(t)$ innerhalb jedes Wechselstromkreises
+sinusförmig mit gleicher Kreisfrequenz $\omega$ sein müssen, da jedes Bauteil die Sinusform erhält und lineare
+Kombinationen von Sinen ebenfalls eine Sinusform gleicher Frequenz ergeben. Demnach sind in einem Wechselstromkreis
+fester Kreisfrequenz $\omega$ ebenfalls jegliche Strom- und Spannungsformen ausgezeichnet durch einen Betrag (die
+Amplitude) und einer Phase (welche sich auf eine beliebige Bezugswellenform bezieht, nach Zeitinvarianz).
+
+% vim:tw=120
