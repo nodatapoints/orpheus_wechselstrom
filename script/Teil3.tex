@@ -1,6 +1,10 @@
 \section{Schaltungen}
 \subsection{Zweipole}
-\begin{center}\includegraphics[width=.6\textwidth]{placeholder.png}\end{center}~\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1.1]{elektroPhilip1.pdf}
+    \caption{5 Exemplarische Zweipole mit den Impedanzen $Z_1$ bis $Z_5$}
+\end{figure}
 %
 % Ne Figure mit 4 Subfigures, wenn du dass hinbekommst.
 % Ne RC Reihe, Ne RC Parallel, Ne RL Reihe, Ne RL Parallel, ne RLC Reihe. (Z_1 - Z_5)
@@ -36,7 +40,11 @@ Legt man z.B. die Amplitude der Spannung über die beiden Pole fest, so kann man
 
 Überlegt man sich jedoch, wie sich die LC-Kreise wie $Z_5$ ohne Widerstand speziell bei $f_g$ verhalten, dann kommt man zu Schwingkreisen.
 
-\begin{center}\includegraphics[width=.6\textwidth]{placeholder.png}\end{center}~\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1.1]{elektroPhilip2.pdf}
+    \caption{Zweipole mit Resonanzverhalten mit Impedanzen $Z_5$ bis $Z_8$}
+\end{figure}
 %
 % Ne Figure mit 4 Subfigures, wenn du dass hinbekommst.
 % die selbe RLC Reihe, Ne LC Reihe, Ne RLC Parallel, Ne RLC Parallel. (Z_5 - Z_8)
@@ -44,7 +52,7 @@ Legt man z.B. die Amplitude der Spannung über die beiden Pole fest, so kann man
 \begin{align*}
     \qquad&&Z_5 &= R + \il + \ic & \xrightarrow{R \,\rightarrow \,\SI{0}{\ohm}} && \il + \ic &= Z_6 
     &&\qquad\\
-    \qquad&&Z_7 &= R \parallel \il \parallel \ic & \xrightarrow{R \,\rightarrow \,\SI{0}{\ohm}} && \il \parallel \ic &= Z_8 &&\qquad\\
+    \qquad&&Z_8 &= R \parallel \il \parallel \ic & \xrightarrow{R \,\rightarrow \,\SI{0}{\ohm}} && \il \parallel \ic &= Z_7 &&\qquad\\
 \end{align*}
 In Schaltung $Z_5$ und $Z_6$ verringert sich der Blindwiderstand nach der Wechselstromrechnung bei höheren Frequenzen auf 0 und steigt dann bei noch höheren Frequenzen wieder vom Betrag her an.
 Warum? Weil sie bei dieser Frequenz einen (un)gedämpften Schwingkreis darstellt, welcher mit Resonanzfrequenz betrieben wird, weswegen die Schaltung keine Arbeit verrichtet, da Sie sich von selber in Schwingung befindet.
@@ -58,7 +66,11 @@ Die Wechselstromrechenmethode ist hier also in der Lage, die Effekte solcher Sch
 \end{align*}
 
 \subsection*{Vierpole}
-\begin{center}\includegraphics[width=.6\textwidth]{placeholder.png}\end{center}~\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1.1]{elektroPhilip3.pdf}
+    \caption{Die vier typischen $RC$- oder $RL$-Filtervierpole}
+\end{figure}
 %
 % Ne Figure mit 4 Subfigures, wenn du dass hinbekommst.
 % $RC$-Hochpass,$RC$-Tiefpass,$RL$-Tiefpass,$RL$-Hochpass.
