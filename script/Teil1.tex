@@ -23,8 +23,11 @@ Intuition für Wechselstromkreise zu schaffen, welche die unterliegende Struktur
 Jedes der drei Bauteile ist symmetrisch und besitzt zwei Kontakte. Die \emph{Spannung} $U$ über dem Bauteil ist die
 elektrische Potentialdifferenz zwischen beiden Kontakten. Man sagt, dass die Spannung $U$ \emph{über dem Bauteil
 abfällt}. Der Strom $I$ fließt durch das Bauteil von einem in den anderen Kontakt -- dabei muss jedoch eine Richtung
-gewählt werden, damit das Vorzeichen eindeutig ist. Als Konvention werden wir Strom und Spannung so angeben, dass ein
-Strom vom höheren zum geringeren Potential immer positiv ist.
+gewählt werden, damit das Vorzeichen eindeutig ist.
+
+Die Spannung ist die Potentialdifferenz $U = \oldphi_2 - \oldphi_1$ von einem zum anderen Kontakt. Als Konvention wird der
+Strom wird immer so angegeben, dass die positive Richtung von Kontakt 2 zu Kontakt 1 fließt. Man kann sich an Hand des
+ohmschen Widerstands im Gleichstromkreis merken, dass der positive Strom vom höheren zum niedrigeren Potential fließt.
 
 Jedes Bauteil besitzt eine eigene Kenngröße, welche das Verhalten und $U$ und $I$ und somit das Bauelement selbst
 vollständig charakterisiert. Wir nehmen alle Bauteile als ideal an, und gehen nicht auf den Aufbau ein.
@@ -134,4 +137,80 @@ Kombinationen von Sinen ebenfalls eine Sinusform gleicher Frequenz ergeben. Demn
 fester Kreisfrequenz $\omega$ ebenfalls jegliche Strom- und Spannungsformen ausgezeichnet durch einen Betrag (die
 Amplitude) und einer Phase (welche sich auf eine beliebige Bezugswellenform bezieht, nach Zeitinvarianz).
 
+\subsection{Mathematische Darstellung}
+\subsubsection{Zeigerdiagramme}
+Zusammenfassend haben wir im vorherigen Abschnitt erkannt, dass das Verhalten jedes der drei Bauteile sich durch einen
+absoluten Wert und eine Phase darstellen lässt, ebenso wie jegliche Ströme und Spannungen. Wir suchen also nach einer
+Möglichkeit, all diese Dinge in einem mathematischen Konzept zu vereinen.
+
+Der Sinus stammt aus dem Kreis -- nimmt man eine Komponente einer Kreisbewegung entlang des Einheitskreises in der
+Ebene, so erhält man eine sinusförmige Funktion.
+
+Betrachten also die Größen als \emph{Zeiger} vom Ursprung, welche einen Betrag $A$ und einen Winkel $\phi$ zur $x$-Achse
+besitzen.  Der Wert der Größe zu jedem Zeitpunkt ist seine $x$-Komponente. Lassen wir nun den Zeiger mit einer
+Kreisfrequenz $\omega$ um den Ursprung drehen, sodass zu Zeitpunkt $t$ das Zeigerdiagramm um den Winkel $\omega t$ aus
+der Ausgangslage gedreht ist. Dann wird der Wert genau einer sinusförmigen Funktion mit Phase $\phi$
+und Amplitude $A$ folgen. In dieser Darstellung können wir also jeder sinusförmigen Funktion eindeutig einen Zeiger in
+der Ebene zuordnen.
+
+Addiert man zwei Zeiger gemäß der Vektoraddition, addieren sich ebenfalls die $x$-Komponenten. Man bemerke, dass es egal
+ist, zuerst die Zeiger zu addieren, und dann das Ergebnis um einen Winkel $\omega t$ zu drehen, oder umgekehrt. Dank
+Zeitinvarianz können wir die Zeiger zum Zeitpunkt $t = 0$ addieren, und erhalten sofort den Zeiger, der der Wellenform
+der Summe der beiden anderen Wellenformen entspricht.
+
+Es wird sichtbar, dass unsere Bauteile sehr ähnlich sind: Legen wir eine Spannungswellenform an, so stehen die
+Stromzeiger von Kondensator und Spule im rechten Winkel auf dem Spannungszeiger, während der Widerstand in die selbe
+Richtung zeigt.
+\subsubsection{Komplexe Darstellung}
+Diese Darstellung ermöglicht es uns also, Strom- und Spannungskurven geometrisch zu interpretieren. Jedoch würden wir gerne
+algebraisch rechnen können, um konkrete Werte auszurechnen.
+
+%Insbesondere suchen wir eine Möglichkeit, den Begriff des Widerstandes auf eine Relation zwischen Strom und Spannung
+%eines Bauteils im Wechselstromkreis zu verallgemeinern.
+
+Dazu führen wir \emph{Komplexe Zahlen} ein. Komplexe Zahlen spannen im Gegensatz zu Reellen Zahlen keine Zahlengerade,
+sondern die Ebene auf. Jede Komplexe Zahl $z = a+bi$ besteht aus zwei Teilen: dem \emph{Realteil} $a$ und dem
+\emph{Imaginärteil} $b$. Die Konstante $i$ ist die Imaginäre Einheit, und ist definiert über $i^2 = -1$. Alleine diese
+Eigenschaften reichen aus, um das Rechnen mit Komplexen Zahlen vollständig zu beschreiben.
+
+Wir ersetzen also die Zeiger mit der entsprechenden komplexen Zahl, sodass die $x$-Komponente der Realteil und die
+$y$-Komponente der Imaginärteil ist. Komplexe Zahlen addieren sich ebenfalls komponentenweise, sodass die Vektoraddition
+erhalten bleibt. Die wahre Macht dieser scheinbar umständlichen Definition findet sich aber erst in der Euler'schen
+Formel:
+\begin{equation}\label{eq:euler}
+    e^{i\phi} = \cos \phi + i\sin \phi
+\end{equation}
+Wow! Was sagt uns das? Die komplexe Zahl $e^{i\phi}$ liegt auf dem Einheitskreis und hat den Winkel $\phi$ zur reellen
+Achse -- also die Phase! Multiplizieren wir mit einem positiven reellen Betrag $A$, so können wir jede komplexe Zahl direkt
+aus Betrag und Winkel darstellen. Dies nennt man die polare Darstellung.
+\begin{equation}\label{eq:polar}
+    Ae^{i\phi} = A(\cos \phi + i\sin \phi)
+\end{equation}
+Aus dieser Darstellung können wir über die Rechenregeln der Exponentialfunktion direkt die Multiplikation von komplexen
+Zahlen verstehen:
+\[ Ae^{i\phi} \cdot Be^{i\psi} = ABe^{i(\phi+\psi)} \]
+Die Beträge multiplizieren sich, die Phasen addieren sich. Eine andere Weise dies zu betrachten ist, dass die
+Multiplikation mit einer Zahl $Ae^{i\phi}$ die Ebene um einen Faktor $A$ streckt, und um einen Winkel $\phi$ dreht.
+
+Letzteres können wir gebrauchen: Um das Zeigerdiagramm zum Zeitpunkt $t$ zu bekommen, muss der Ausgangszustand zu $t=0$
+um den Winkel $\omega t$ gedreht werden -- also mit $e^{i\omega t}$ multipliziert. Damit lautet die Zeitentwicklung
+einer komplexen Größe $z$
+\begin{equation}
+    z\cdot e^{i\omega t}
+\end{equation}
+Wenn wir $z$ polar darstellen als $z = \hat A e^{i\phi}$ mit Betrag (Amplitude) $\hat A$ und Winkel (Phase) $\phi$, erkennen wir
+etwas wieder
+
+\begin{gather*}
+\Re z\cdot e^{i\omega t}
+    = \Re\qty(Ae^{i\phi} \cdot e^{i\omega t})
+    = \Re\qty(Ae^{i(\omega t + \phi)})
+    = \hat A\Re\qty(\cos(\omega t + \phi) + i\sin(\omega t + \phi)) \\
+    = \hat A\cos(\omega t  +\phi)
+    = \hat A\sin(\omega t + \phi + \pi/2)
+\end{gather*}
+Der Realteil entspricht genau einer Sinusform mit Amplitude $A$ und Phasenverschiebung $\phi+\pi/2$. Dank Zeitinvarianz
+ist die Konstante Phase $\pi/2$ allerdings irrelevant, da man wie bereits gesagt nur Phasen zwischen Größen
+vergleicht.\footnote{Die Wahl des Realteils ist auch Konvention. Man hätte genau so gut den Imaginärteil nehmen können,
+was einem die Phase erspart hätte.}
 % vim:tw=120
