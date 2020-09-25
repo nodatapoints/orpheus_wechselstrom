@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20200925122316" modified="D:20200925122649"/>
+<info created="D:20200925122316" modified="D:20200925123930"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -220,13 +220,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -471,13 +471,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -519,9 +519,9 @@ h
 <text matrix="1 0 0 1 -40 0" transformations="translations" pos="456 552" stroke="seagreen" type="label" width="12.972" height="11.764" depth="0" valign="baseline" size="LARGE" style="math">R</text>
 <text matrix="1 0 0 1 0 -48" transformations="translations" pos="360 656" stroke="volt" type="label" width="71.29" height="11.766" depth="2.58" valign="baseline" size="LARGE" style="math">X_L = \mathrm{i}\omega L</text>
 <text matrix="1 0 0 1 0 40" transformations="translations" pos="360 432" stroke="curr" type="label" width="67.003" height="14.479" depth="5.94" valign="baseline" size="LARGE" style="math">X_C = \frac{1}{ \mathrm{i}\omega L }</text>
-<text matrix="1 0 0 1 0 -12" transformations="translations" pos="360 568" stroke="black" type="label" width="22.85" height="11.922" depth="5.94" valign="baseline" size="LARGE" style="math">\phantom{-}\frac{\pi}{2}</text>
-<text matrix="1 0 0 1 -8 4" transformations="translations" pos="368 520" stroke="black" type="label" width="22.85" height="11.922" depth="5.94" valign="baseline" size="LARGE" style="math">-\frac{\pi}{2}</text>
-<path matrix="1 0 0 1 0 0" stroke="gray">
+<text matrix="1 0 0 1 -4 -12" transformations="translations" pos="360 568" stroke="black" type="label" width="22.85" height="11.922" depth="5.94" valign="baseline" size="LARGE" style="math">\phantom{-}\frac{\pi}{2}</text>
+<text matrix="1 0 0 1 -12 4" transformations="translations" pos="368 520" stroke="black" type="label" width="22.85" height="11.922" depth="5.94" valign="baseline" size="LARGE" style="math">-\frac{\pi}{2}</text>
+<path stroke="gray">
 336 640 m
 352 624 l
 </path>

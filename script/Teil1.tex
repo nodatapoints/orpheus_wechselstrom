@@ -31,12 +31,24 @@ ohmschen Widerstands im Gleichstromkreis merken, dass der positive Strom vom hö
 
 Jedes Bauteil besitzt eine eigene Kenngröße, welche das Verhalten und $U$ und $I$ und somit das Bauelement selbst
 vollständig charakterisiert. Wir nehmen alle Bauteile als ideal an, und gehen nicht auf den Aufbau ein.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{kBR.pdf}
+    \includegraphics[width=0.6\textwidth]{kPR.pdf}
+    \caption{Das Widerstandsschaltsymbol und dessen $U(t),\, I(t)$ Relation}
+\end{figure}
 \paragraph*{Der Widerstand} folgt dem ohmschen Gesetz
 \begin{equation}\label{eq:R}
     U = R\cdot I ~.
 \end{equation}
 Strom und Spannung sind proportional. Die Kenngröße $R$ wird ebenfalls als \emph{Widerstand} bezeichnet und in Ohm
 ($\si{\ohm} = \si{V}/\si{A}$) angegeben. Ein Widerstand wandelt elektrische Leistung in Wärmeleistung um.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{kBC.pdf}
+    \includegraphics[width=0.6\textwidth]{kPC.pdf}
+    \caption{Das Kondensatorschaltsymbol und dessen $U(t),\, I(t)$ Relation}
+\end{figure}
 \paragraph*{Der Kondensator}
 folgt der Gleichung
 \begin{equation}\label{eq:C}
@@ -47,6 +59,12 @@ in Farad ($\si{\farad} = \si{\ampere\second}/\si{\volt}$) angegeben. Häufig wir
 = CU$ eingeführt, aber dies ist irreführend: Die Gesamtladung eines Kondensators ist immer 0, da der gleiche Strom ein-
 wie ausfließt. Stattdessen speichert der Kondensator elektrische Energie in seinem elektrischen Feld. Im Bild der
 Wechselstromkreise ist die Anschauung hilfreich, dass ein Kondensator Änderungen der Spannung durch Strom entgegenwirkt.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{kBL.pdf}
+    \includegraphics[width=0.6\textwidth]{kPL.pdf}
+    \caption{Das Spulenschaltsymbol und dessen $U(t),\, I(t)$ Relation}
+\end{figure}
 \paragraph*{Die Spule}
 ist das Gegenbild des Kondensators und folgt nach Selbstinduktion der Gleichung
 \begin{equation}\label{eq:L}
@@ -155,6 +173,12 @@ der Ausgangslage gedreht ist. Dann wird der Wert genau einer sinusförmigen Funk
 und Amplitude $A$ folgen. In dieser Darstellung können wir also jeder sinusförmigen Funktion eindeutig einen Zeiger in
 der Ebene zuordnen.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.7\textwidth]{kZeiger.pdf}
+    \caption{Vektoraddition im Zeigerdiagramm}
+\end{figure}
+
 Addiert man zwei Zeiger gemäß der Vektoraddition, addieren sich ebenfalls die $x$-Komponenten. Man bemerke, dass es egal
 ist, zuerst die Zeiger zu addieren, und dann das Ergebnis um einen Winkel $\omega t$ zu drehen, oder umgekehrt. Dank
 Zeitinvarianz können wir die Zeiger zum Zeitpunkt $t = 0$ addieren, und erhalten sofort den Zeiger, der der Wellenform
@@ -253,6 +277,11 @@ Realteil nehmen. Setzen wir die komplexe Zeitenwicklung für die jeweiligen Grö
         U &= i\omega L \cdot I
     \end{aligned}
 \end{gather*}
-Wir können die imaginären Impedanzen von $L$ und $C$ im Zeigerdiagramm (TODO diagramm!) wiederfinden: Sie sind beide
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{kCompZeiger.pdf}
+    \caption{Bauteilimpedanzen als Zeiger im komplexen Zeigerdiagramm}
+\end{figure}
+Wir können die imaginären Impedanzen von $L$ und $C$ im Zeigerdiagramm wiederfinden: Sie sind beide
 rein imaginär und besitzen $\pi/2$ Phasenverschiebung. Zudem sind sie entgegengesetzt.
 % vim:tw=120
