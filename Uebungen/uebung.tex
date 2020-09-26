@@ -1,17 +1,25 @@
 \documentclass[a4paper]{scrartcl}                        % Blatt
 \usepackage{amsmath,amsthm,amssymb,mathtools}
-\usepackage{listings}
+\usepackage{listings,physics}
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=1cm]{geometry}
 %\usepackage[ngerman]{babel}
 \usepackage{graphicx}
-\usepackage{subcaption}
+\usepackage{subcaption,siunitx}
 \usepackage{harpoon}
 \usepackage[ngerman]{babel} 
+\newcommand{\imu}{\mathrm{i}}
 
 \newcommand{\vect}[1]{\overrightharp{\ensuremath{#1}}}
 \newcommand{\field}[1]{\par\begin{large}{\vspace*{0.5cm}\noindent{}\textbf{#1}\vspace*{-1mm}}\end{large}}
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\sisetup{scientific-notation=engineering, exponent-product = \cdot, output-decimal-marker = {,}, separate-uncertainty, exponent-to-prefix}
 %\newcommand{\problem}[2]{{\par\noindent{}\textit{Problem {\uppercase\expandafter{\romannumeral #1\relax}}.} #2}}
-\newenvironment{problem}[3]{{\par\vspace*{4.5mm}\noindent{}\textit{Aufgabe {\uppercase\expandafter{\romannumeral #1\relax}}:} #2}\vspace*{+0.2cm}\hfill{\textit{#3}}\\\hspace*{0.8cm}\hfill\begin{minipage}{\dimexpr\textwidth-1.3cm}}{\end{minipage}\hspace*{0.5cm}}
+\newenvironment{problem}[3]{{\par\vspace*{4.5mm}\noindent{}\textit{Aufgabe {\uppercase\expandafter{\romannumeral #1\relax}}:} #2}\vspace*{+0.2cm}\hfill{\textit{
+%#3
+}}\\\hspace*{0.8cm}\hfill\begin{minipage}{\dimexpr\textwidth-1.3cm}}{\end{minipage}\hspace*{0.5cm}\\[.7em]}
+\newenvironment{solution}[3]{{\par\vspace*{4.5mm}\noindent{}\textit{Lösung {\uppercase\expandafter{\romannumeral #1\relax}}:} #2}\vspace*{+0.2cm}\hfill{\textit{
+%#3
+}}\\\hspace*{0.8cm}\hfill\begin{minipage}{\dimexpr\textwidth-1.3cm}}{\end{minipage}\hspace*{0.5cm}\\[.7em]}
 % don't fucking ask! (im 4h into this and it __works__)
 % \vspace*{+0.2cm} -> \vspace*{-0.2cm} wenn die erste Zeile nen align is.
 
@@ -23,14 +31,146 @@
 \maketitle
 
 \field{Impendanz-, Strom, Spannungs-, Leistungs- und Arbeitsrechnung}
-\begin{problem}{1}{Kenngrößen des kompensierten $RC$-Spannungsteilers}{placeholder}
-hallo
+\begin{problem}{1}{Wirkleistung Motor}{placeholder}
+Ein Elektromotor kann im Ersatzschaltbild als Reihenschaltung von einer Spule mit 
+Induktivität $L_{\text{Motor}}$ und
+eines Widerstandes $R_{\text{Motor}}$ dargestellt werden.
+Der Motor habe \SI{1}{\kilo\watt} Wirkleistung bei $U_{\text{eff}} = \SI{230}{V}$ und $f = \SI{50}{\hertz}$.
+Was ist die maximal mögliche Induktivität $L_{\text{Motor}}$ des Motors und welchen Widerstand $R_{\text{Motor}}$
+würde dies erzwingen?
+Vergleiche den Wirk- mit dem Blindwiderstand.
 \end{problem}
+
+\begin{solution}{1}{Wirkleistung Motor}{placeholder}
+    \begin{align*}
+        P_{\text{eff}} &= \frac{1}{2} \hat{U} \hat{I} \frac{\Re(R + X_L)}{\abs{R + X_L}} 
+        = \frac{\hat{U}^2}{2}  \frac{\Re(R + X_L)}{\abs{R + X_L}^2} = \frac{\hat{U}^2}{2} \frac{R}{R^2 - X_L^2} \\
+        R_{1/2} &= \frac{\hat{U}^2 \pm \sqrt{\hat{U}^4 + 16P_{\text{eff}}^2X_L^2}}{4P_{\text{eff} }}  
+    \end{align*}
+    Da $X_L^2$ negativ (oder 0) ist, gibt es 2 mögliche Motorwiderstände für geringe Induktivitäten.
+    Für steigende Induktivitäten nähren sich diese aneinander an, bis sie bei der Grenzinduktivität denselben Wert wiedergeben. Für noch höhere Induktivitäten existieren keine Widerstände mehr, welche die angegebene Wirkleistung erzielen. Warum nicht?
+    Um die Grenzinduktivität zu erhalten, setzen wir den Radikanten also gleich 0. 
+    % i dont f***ing know :)
+    \begin{align*}
+         && 0 &\stackrel{!}{=} \hat{U}^4 + 16P_{\text{eff}}^2X_L^2 \\
+         R_{1/2} &= \frac{\hat{U}^2 \pm \sqrt{0}}{4P_{\text{eff} }} = \frac{\hat{U}^2}{4 P_{\text{eff}}}
+         &   \implies X_L &= \frac{\hat{U}^2}{4 P_{\text{eff}}}\imu = R_{1/2} \imu
+    \end{align*}
+    Im Grenzfall sind Blind- und Wirkwiderstand also gleich.
+    Nun können wir schließlich noch den Spezialfall explizit ausrechnen.
+    \begin{align*}
+        R_{\text{Motor}} &= \frac{\hat{U}^2}{4 P_{\text{eff}}} 
+            = \frac{(\sqrt{2}\cdot \SI{230}{\volt})^2}{\SI{4}{\kilo\watt}} = \SI{26.45}{\ohm}\\
+        L_{\text{Motor}} &= \frac{X_L}{\omega\imu } = \frac{R_{\text{Motor}}\imu }{ 2 \pi \imu f}
+            = \frac{\SI{26.45}{\ohm}}{ 2 \pi \cdot  \SI{50}{\hertz}} \approx \SI{84.2}{\milli\henry}
+    \end{align*}
+\end{solution}
+
+\newpage
+
+\begin{problem}{2}{Motorkompensation}{placeholder}
+Selbes Motorkonzept, anderer Motor.
+Der Wirkwiderstand $R_{\text{Motor}}$ sei $\SI{10}{\ohm}$.
+Man habe nun die Möglichkeit, ein weiteres passives Bauteil parallel zum Motor zu schalten, um die Blindleistung 
+der Gesamtschaltung zu minimieren. Welches Bauteil sollte man wählen und wie verhält sich dessen Kenngröße in Abhängigkeit von $L_{\text{Motor}}$.
+Man berechne die Kenngröße explizit für $L_{\text{Motor}} = \SI{0.1}{\henry}$ und $f = \SI{50}{\hertz}$.
+\end{problem}
+
+\begin{solution}{2}{Motorkompensation}{placeholder}
+    \begin{minipage}{0.6\textwidth}
+        \begin{align*}
+            X_{R,L} &= R + \imu \omega L \\
+            Z &= X_{R,L} \parallel X_X = \frac{1}{\frac{1}{R + \imu \omega L} + \frac{1}{X_X}} 
+        \end{align*}
+    \end{minipage}
+    \begin{minipage}{0.03\textwidth}
+        ~~~~~
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{loes2.pdf}
+    \end{minipage}\\[.3em]
+    Wir können versuchen, den Gesamtblindwiderstand gleich 0 zu setzen.
+    Denn sollte dies möglich sein, so haben wir mit Sicherheit den Blindwidersatnd minimiert.
+    \begin{align*}
+        \Re(Z) = Z &= \frac{1}{\frac{1}{R + \imu \omega L} + \frac{1}{X_X}}
+        = \frac{1}{\frac{X_X + R + \imu \omega L}{X_X \cdot (R + \imu \omega L)}}
+        = \frac{X_X \cdot (R + \imu \omega L)}{X_X + R + \imu \omega L}
+    \end{align*}
+    Hier ergibt sich die triviale Lösung, $X_X = \SI{0}{\ohm}$ zu setzen. Dies entspricht aber einer Parallelschaltung mit einem Kurzschluss, über welchen logischerweise jeder Strom fließt (keine Resonanz). Da der Motor dadurch aber nutzlos wird, schließen wir diese Lösung aus und bringen den Bruch auf einen reellen Nenner.
+    \begin{align*}
+        \frac{ \imu \omega L X_X + R X_X}{R + (\imu \omega L + X_X)} 
+            &= \underbrace{\frac{\imu \omega L X_X R - \imu \omega L R X_X - R X_X^2}{R^2 - (\imu \omega L + X_X)^2}}_{\text{Realteil}}
+            + \underbrace{\frac{R^2 X_X  + \omega^2 L^2 X_X - \imu \omega L X_X^2}{R^2 - (\imu \omega L + X_X)^2}}_{\text{Imaginärteil (reeller Nenner)}} \\
+            \implies \qquad\qquad 0 &= R^2 X_X  + \omega^2 L^2 X_X - \imu \omega L X_X^2 \\
+            \omega L \cdot X_X \imu &= R^2 + \omega^2L^2\\
+            X_X &= -\frac{R^2 + \omega^2L^2}{\omega L}\imu \quad \implies \quad \Im(X_X) < \SI{0}{\ohm}
+    \end{align*}
+    Das kompensierende Bauteil sollte also kapazitiv sein. Einsetzen der vorgegebenen Größen liefert
+    \begin{align*}
+        X_C &= -\frac{(\SI{10}{\ohm})^2 + (2\pi \cdot \SI{50}{\hertz})^2
+        (\SI{0.1}{\henry})^2}{2\pi\cdot  \SI{50}{\hertz}\cdot \SI{0.1}{\henry}}\imu
+        \approx -{34.6 \imu}\si{\ohm}\\
+        C &= \frac{-\imu}{\omega X_C} = \frac{1}{2\pi\cdot \SI{50}{\hertz} \cdot \SI{34.6}{\ohm}} 
+        \approx \SI{9.2e-5}{\farad}
+    \end{align*}
+\end{solution}
+
+\newpage
+
+\begin{problem}{3}{Kenngrößen des kompensierten $RC$-Spannungsteilers}{placeholder}
+    \begin{minipage}{0.55\textwidth}
+        Ein Spannungsteiler aus zwei Widerständen mit den Widerstandswerten $R_1$ und $R_2$ wird mit
+        einem Kondensator $C_L$ im Wechselstrom belastet. Zu diesem Zeitpunkt sei die Kapazität $C_R$ des Regelkondensators noch 0, praktisch ein offener Schalter.
+        Wie sehr bricht die Ausgangsspannung in Abhängigkeit der Kreisfrequenz ein [$f(\omega) \coloneqq U_a(\omega)/{U_e}$]?\\[-.73em]
+    \end{minipage}
+    \begin{minipage}{0.03\textwidth}
+        ~~~~~
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{aufg3.pdf}
+    \end{minipage}
+    Welches Verhalten lässt sich beobachten, wenn man nun $C_R$ so auswählt, dass $C_RR_1 = C_LR_2$ gilt?
+\end{problem}
+
+\begin{solution}{3}{Kenngrößen des kompensierten $RC$-Spannungsteilers}{placeholder}
+    Die Gesamtschaltung bleibt weiterhin ein Spannungsteiler, nur nun mit einer Parallelschaltung aus Kondensator und Widerstand. Insofern kann man die übliche Spannungsteilerformel verwenden.
+    \begin{align*}
+        U_a &= \frac{R_2 \parallel X_{C_L}}{R_1 + (R_2 \parallel X_{C_L})} & R_2 \parallel X_{C_L} 
+            = \frac{R_2\cdot X_{C_L}}{R_2 +     X_{C_L}}
+    \end{align*}
+    Definieren wir uns nun die normierte Frequenz $\Omega_L = \omega R_2C_L$, so können wir uns die Ausgangsspannung in einigen Grenzfällen für $\omega$ approximieren, um ein Gefühl für das Verhalten der Übertragsfunktion zu bekommen.
+    \begin{align*}
+        R_2 \parallel X_{C_L} &= \frac{\frac{R_2}{\imu \omega C_L}}{R_2 + \frac{1}{\imu \omega C_L}}
+        = \frac{R_2}{1 + \imu \Omega_L} \approx \begin{cases}
+             R_2 & \text{für } \Omega_L \ll 1 \\ 
+             \frac{R_2}{1 + \imu} & \text{für } \Omega_L = 1 \\
+             X_{C_L} & \text{für } \Omega_L \gg 1 
+        \end{cases} \\
+        \implies  \frac{U_e}{U_a} &\approx \begin{cases}
+            \frac{R_2}{R_1 + R_2} & \text{für } \Omega_L \ll 1 \\ 
+            \frac{R_2}{(1 + \imu)R_1 + R_2} & \text{für } \Omega_L = 1 \\
+            \frac{X_{C_L}}{R_1 + X_{C_L}} & \text{für } \Omega_L \gg 1 
+        \end{cases}  
+    \end{align*}
+    Für niedrige Frequenzen arbeitet der kapazitive Spannungsteiler wie ein ohmscher, für große Frequenzen 
+    $\omega^{-1} \ll R_2C_L$ sinkt die Ausgangsspannung wie beim Tiefpass 1.Ordnung, mit der Grenzkreisfrequenz $(R_2C_L)^{-1}$.
+    Setzen wir nun $C_RR_1 = C_LR_2$, so wird auch die erste Teilimpedanz des Spannungsteilers komplex. Wir definieren zusätzlich noch $\Omega_R = \omega R_1C_R$ zur Vereinfachung der folgenden Formeln und bemerken $\Omega_L = \Omega_R \eqqcolon \Omega$.
+    \begin{align*}
+        \frac{U_e}{U_a} &= \frac{R_2 \parallel X_{C_L}}{(R_1 \parallel X_{C_R}) + (R_2 \parallel X_{C_L})}
+            = \frac{\frac{R_2}{1+\imu \Omega_L}}{\frac{R_1}{1 + \imu \Omega_R} + \frac{R_2}{1+\imu \Omega_L}} \\[.2em]
+        &= \frac{(1 + \imu \Omega_R)R_2}{(1 + \imu \Omega_L)R_1 + (1 + \imu \Omega_R)R_2}
+        = \frac{(1 + \imu \Omega)R_2}{(R_1 + R_2) + (R_1+ R_2)\Omega\imu} \\[.2em]
+        &= \frac{R_2}{R_1 +R_2} \cdot \frac{1 + \Omega\imu}{1 + \Omega\imu} = \frac{R_2}{R_1 +R_2}
+    \end{align*} 
+    Für ein solches Verhältnis der Kapazitäten und Widerstände ist das Spannungsteilerverhältnis also 
+    unabhängig von der Frequenz des Signals.
+    Dies wird sich bei Tastköpfen von Oszilloskopen zunutze gemacht, da die Eingänge sowohl Widerstand als auch Kapazität aufweisen. Tastköpfe haben dies dann auch (mit einstellbarer Kapazität) und werden dann vor das Oszilloskop, sodass der Eingang hochfrequente nicht stärker als niederfrequente Signale dämpft, wie es beim Frequenzunkompensierten Spannungsteiler (erster Aufgabenteil) der Fall wäre. 
+\end{solution}
 
 
 \field{Konzeption komplexer Wechselstrom}
-\begin{problem}{3}{Effektive und Genaue verrichtete Arbeit}{placeholder}
-hallo hallo
+\begin{problem}{1}{Effektive und Genaue verrichtete Arbeit}{placeholder}
+ab welcher länge eines 1MHz Signales über ein RC-Reihenglied (100Ohm, 10nF) weicht die effektive Arbeit grob nur noch maximal ein Promille von der genauen Arbeit ab.
 \end{problem}
 
 \end{document}
