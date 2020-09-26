@@ -4,7 +4,7 @@
 \usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=1cm]{geometry}
 %\usepackage[ngerman]{babel}
 \usepackage{graphicx}
-\usepackage{subcaption,siunitx}
+\usepackage{subcaption,siunitx,marvosym}
 \usepackage{harpoon}
 \usepackage[ngerman]{babel} 
 \newcommand{\imu}{\mathrm{i}}
@@ -168,9 +168,82 @@ Man berechne die Kenngröße explizit für $L_{\text{Motor}} = \SI{0.1}{\henry}$
 \end{solution}
 
 
-\field{Konzeption komplexer Wechselstrom}
-\begin{problem}{1}{Effektive und Genaue verrichtete Arbeit}{placeholder}
-ab welcher länge eines 1MHz Signales über ein RC-Reihenglied (100Ohm, 10nF) weicht die effektive Arbeit grob nur noch maximal ein Promille von der genauen Arbeit ab.
+\begin{problem}{4}{Leistungskosten}{placeholder}
+    Energieversorger rechnen für Privatkunden nicht Blind- und Wirkleistung getrennt ab.
+    Stattdessen wird von einer ohmschen Belastung ausgegangen und Energie ($p = 31,\!5\text{ct}/\text{kWh}$) über die approximierte Leistung $\tilde{P} = U_{\text{eff}}I_{\text{eff}}$ berechnet.
+    Angenommen man hat in seiner Wohnung $R_{\text{Last}}=\SI{100}{\ohm}$ einen Kondensatorschrank $C = \SI{1}{\farad}$ parallel angeschlossen. Wie viel zahlt man dann jährlich zu viel an den Energieversorger? (Annahme: Blindleistung eigentlich kostenlos, da keine Energie verloren geht.)
 \end{problem}
+
+\begin{solution}{4}{Leistungskosten}{placeholder}
+    Über die Impedanz erhält man sowohl die Effektive Leistung, als auch den Scheinwiderstand, aus welchem man die Scheinleistung erhält.
+    Diese muss man dann nur noch mit der Zeit und dem Preis multiplizieren um die jährlichen Kosten zu erhalten.
+    \begin{align*}
+        Z &= R \parallel X_C = \frac{1}{\frac{1}{\SI{100}{\ohm}} + \imu 2 \pi \cdot \SI{50}{\hertz}} 
+        \approx (10^{-6}-3\cdot10^{-3}\imu)\si{\ohm}\\
+        P_{\text{eff}} &= \frac{\hat{U}\hat{I}}{2} \frac{\Re(Z)}{|Z|} = U_{\text{eff}}^2 \frac{\Re(Z)}{|Z|^2}
+        \approx \SI{5290}{\watt} & \mathllap{\text{Wirkleistung}} \\
+        \tilde{P} &= U_{\text{eff}}I_{\text{eff}} = U_{\text{eff}}^2 \frac{1}{|Z|} 
+        = P_{\text{eff}} \frac{|Z|}{\Re(Z)} \approx \SI{16.62}{\mega\watt} & \mathllap{\text{Scheinleistung}} \\
+        \text{jährl. Kosten} &= \tilde{P}\cdot T \cdot p 
+        = \SI{16.62}{\mega\watt} \cdot \SI{31.54}{\mega\second} \cdot 31,\!5\text{ct}/\text{kWh} \approx 45,\!85\,\text{Mio.\EURtm}\\
+        \text{Extrakosten} &= (\tilde{P}-P_{\text{eff}})\cdot T \cdot p 
+        = \SI{16.61}{\mega\watt} \cdot \SI{31.54}{\mega\second} \cdot 31,\!5\text{ct}/\text{kWh} \approx 45,\!86\,\text{Mio.\EURtm}
+    \end{align*}
+    Ganz schön teuer. 
+\end{solution}
+
+\newpage
+
+\field{Konzeption komplexer Wechselstrom}
+\begin{problem}{1}{Effektive und Exakte verrichtete Arbeit}{placeholder}
+Ab welcher Länge eines $\SI{1}{\mega\hertz}$ Signales über ein $RC$-Reihenglied (\SI{100}{\ohm}, \SI{10}{\nano\farad}) weicht die effektive Arbeit nur noch maximal ein Promille von der genauen Arbeit ab?
+% Das is nich mal __genau__ genau, sondern nur grob genau
+% genau genau is sowiso prbly nur numerisch machbar.
+\end{problem}
+
+
+
+\begin{solution}{1}{Effektive und Exakte verrichtete Arbeit}{placeholder}
+    Berechnen wir die Impedanz des Reihengliedes, so können wir aus dieser auf die exakte und effektive Leistung 
+    schließen und daraus dann die Arbeit erhalten.
+    $$X = (100 - 100\imu)\si{\ohm}\hspace*{4cm}$$\\[-3.5em]
+    \begin{align*}
+        P_{\text{eff}} &= \frac{1}{\sqrt{2} \cdot 2}\cdot \hat{U} \hat{I} &
+        P_{\text{exakt}} &= \sin(2\pi \cdot \SI{1}{\mega\hertz}) \cdot \sin(2\pi \cdot \SI{1}{\mega\hertz} + \frac{\pi}{4}) \cdot \hat{U} \hat{I} \\
+        W_{\text{eff}} &= P_{\text{eff}}\hspace*{.3mm}t = \frac{\hat{U} \hat{I}}{\sqrt{2} \cdot 2} t &    
+        W_{\text{exakt}} &= \frac{\hat{U} \hat{I} \cdot t}{\sqrt{2} \cdot 2} - \frac{\cos(\SI{4}{\mega\hertz} \cdot \pi t) + \sin(\SI{4}{\mega\hertz} \cdot \pi t)}{\sqrt{2}\pi \cdot \SI{8}{\mega\hertz} } \cdot \hat{U} \hat{I} \\
+    \end{align*}\\[-3.5em]
+    \begin{align*}
+        \frac{W_{\text{eff}} - W_{\text{exakt}}}{W_{\text{eff}}} &= 
+        \frac{\cos(\SI{4}{\mega\hertz} \cdot \pi t) + \sin(\SI{4}{\mega\hertz} \cdot \pi t)}{\sqrt{2}\pi \cdot \SI{8}{\mega\hertz}} \frac{\sqrt{2} \cdot 2}{t}= 
+        \frac{\sin(\frac{\pi}{4} + \SI{4}{\mega\hertz} \cdot \pi t)}{\sqrt{2}\pi t \cdot \SI{2}{\mega\hertz}} \\
+        &\leq \frac{1}{\sqrt{2}\pi t \cdot \SI{2}{\mega\hertz}} \stackrel{!}{=} \frac{1}{1000} \\
+        &\hspace*{1.018cm}\implies t_{\text{Abw}} \approx \frac{1000}{\sqrt{2}\pi \cdot \SI{2}{\mega\hertz}}  
+        =\frac{\SI{1}{\milli\second}}{2\sqrt{2}\pi} \approx \SI{113}{\micro\second}
+    \end{align*}
+    Man sieht, dass die effektive Arbeit bei solchen Frequenzen sehr schnell sehr genau der exakten Arbeit entspricht und sich immer weiter mit $1/t$ relativ gegen die exakte Arbeit annähert.
+    Was gegebenenfalls auffällt, ist dass die exakte Leistung zwischenzeitlich negativ ist. Dies lässt sich dadurch erklären, dass die Schaltung die vorher elektrisch gespeicherte Arbeit (von dann, wenn $P_{\text{exakt}} > P_{\text{eff}}$) wieder abgibt, und damit insgesamt kurzzeitig Energie abgibt.
+\end{solution}
+
+\newpage
+
+\begin{problem}{2}{Nichtnegativer Wirkwiderstand}{placeholder}
+Jedes einzelne passive Bauteil hat einen nichtnegativen Wirkwiderstand.
+Aus der Abgeschlossenheit der komplexen Zahlen unter Addition und Inversion folgt, dass auch 
+Kombinationen von Reihen- und Parallelschaltungen nichtnegative Wirkwiderstände besitzen, 
+da die Gesamtimpedanz von diesen nur durch
+Inversion und Addition aus den Einzelimpedanzen berechnet werden kann.
+\begin{align*}
+    Z_1 + Z_2 &= (R_1+R_2) + (I_1 + I_2)\imu 
+    &\implies&& \Re(Z_1 + Z_2) &= R_1+R_2 \geqslant 0\\
+    \frac{1}{Z_1} &= \frac{R_1-I_1\imu}{R_1^2 + I_1^2}
+    &\implies&& \Re\qty(\frac{1}{Z_1}) &= \frac{R_1}{R_1^2 + I_1^2} \geqslant 0
+\end{align*}
+Man beweise, ob/dass dies auch für allgemeine Zweipolschaltungen (wie z.b. die H-Brücke) gilt.
+\end{problem}
+
+%
+% I dont have no solution :/
+%
 
 \end{document}
