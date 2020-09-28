@@ -31,24 +31,20 @@ ohmschen Widerstands im Gleichstromkreis merken, dass der positive Strom vom hö
 
 Jedes Bauteil besitzt eine eigene Kenngröße, welche das Verhalten und $U$ und $I$ und somit das Bauelement selbst
 vollständig charakterisiert. Wir nehmen alle Bauteile als ideal an, und gehen nicht auf den Aufbau ein.
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.3\textwidth]{kBR.pdf}
-    \includegraphics[width=0.6\textwidth]{kPR.pdf}
-    \caption{Das Widerstandsschaltsymbol und dessen $U(t),\, I(t)$ Relation}
-\end{figure}
+
 \paragraph*{Der Widerstand} folgt dem ohmschen Gesetz
 \begin{equation}\label{eq:R}
     U = R\cdot I ~.
 \end{equation}
 Strom und Spannung sind proportional. Die Kenngröße $R$ wird ebenfalls als \emph{Widerstand} bezeichnet und in Ohm
 ($\si{\ohm} = \si{V}/\si{A}$) angegeben. Ein Widerstand wandelt elektrische Leistung in Wärmeleistung um.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\textwidth]{kBC.pdf}
-    \includegraphics[width=0.6\textwidth]{kPC.pdf}
-    \caption{Das Kondensatorschaltsymbol und dessen $U(t),\, I(t)$ Relation}
+    \includegraphics[width=0.3\textwidth]{kBR.pdf}
+    \includegraphics[width=0.6\textwidth]{kPR.pdf}
+    \caption{Das Widerstandsschaltsymbol und dessen $U(t),\, I(t)$ Relation}
 \end{figure}
+
 \paragraph*{Der Kondensator}
 folgt der Gleichung
 \begin{equation}\label{eq:C}
@@ -59,12 +55,13 @@ in Farad ($\si{\farad} = \si{\ampere\second}/\si{\volt}$) angegeben. Häufig wir
 = CU$ eingeführt, aber dies ist irreführend: Die Gesamtladung eines Kondensators ist immer 0, da der gleiche Strom ein-
 wie ausfließt. Stattdessen speichert der Kondensator elektrische Energie in seinem elektrischen Feld. Im Bild der
 Wechselstromkreise ist die Anschauung hilfreich, dass ein Kondensator Änderungen der Spannung durch Strom entgegenwirkt.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\textwidth]{kBL.pdf}
-    \includegraphics[width=0.6\textwidth]{kPL.pdf}
-    \caption{Das Spulenschaltsymbol und dessen $U(t),\, I(t)$ Relation}
+    \includegraphics[width=0.3\textwidth]{kBC.pdf}
+    \includegraphics[width=0.6\textwidth]{kPC.pdf}
+    \caption{Das Kondensatorschaltsymbol und dessen $U(t),\, I(t)$ Relation}
 \end{figure}
+
 \paragraph*{Die Spule}
 ist das Gegenbild des Kondensators und folgt nach Selbstinduktion der Gleichung
 \begin{equation}\label{eq:L}
@@ -74,6 +71,13 @@ Die Spannung ist proportional und entgegengesetzt zur Änderung des Stroms. Die 
 wird in Henry ($\si{\henry} = \si{\volt\second}/\si{\ampere}$) angegeben. Eine Spule speichert elektrische Energie in
 ihrem Magnetfeld. Man kann sich merken, dass eine Spule Änderungen im Strom durch eine induzierte Spannung
 entgegenwirkt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{kBL.pdf}
+    \includegraphics[width=0.6\textwidth]{kPL.pdf}
+    \caption{Das Spulenschaltsymbol und dessen $U(t),\, I(t)$ Relation}
+\end{figure}
+
 \subsection{Linearität}
 Diese drei Komponenten mögen zunächst sehr verschieden wirken, jedoch sind sie durch zwei Eigenschaften vereint, welche
 sich später als sehr nützlich erweisen werden: Sie verhalten sich \emph{linear} und \emph{zeitinvariant}. Um dies zu
@@ -165,7 +169,36 @@ Möglichkeit, all diese Dinge in einem mathematischen Konzept zu vereinen.
 
 Der Sinus stammt aus dem Kreis -- nimmt man eine Komponente einer Kreisbewegung entlang des Einheitskreises in der
 Ebene, so erhält man eine sinusförmige Funktion.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \coordinate (M) at (-3, 0);
+        \path (M) -- ++(60:2) node[inner sep=1pt] (P) {};
 
+        \draw[thick, ->] (0, 0) -- (9, 0) node[right] {$t$};
+        \draw[thick, ->] (0, 0) -- +(0, 2.2);
+        \draw[thick, ->] (M) -- +(2.2, 0);
+        \draw[thick, ->] (M) -- +(0, 2.2);
+
+        \draw (0, 0) sin (2, 2) cos (4, 0)
+            (8, 0) sin (6, -2) cos (4, 0);
+
+        \draw (M) circle (2);
+        \draw[dashed] (P)++(-1, 0) -- (1.333, 1.732);
+
+        \draw[very thick, red, -{Latex[flex=0]}] (-1, 0) arc (0:60:2);
+        \draw[very thick, black, -{Latex}] (M) -- (P);
+
+        \draw[very thick, blue] (-2, 0) -- (P)
+            (1.333, 0) -- +(0, 1.732);
+        \draw[very thick, red] (0, 0) -- node[below,red] {$t$} (1.333, 0);
+
+        \node[draw,red,shape=circle,fill=red,inner sep=1pt] at (P) {};
+
+        \path (M) -- ++(30:2.5) node[red] {$\omega t$};
+    \end{tikzpicture}
+    \caption{Sinuskurve als Komponente der Kreisbewegung}
+\end{figure}
 Betrachten also die Größen als \emph{Zeiger} vom Ursprung, welche einen Betrag $A$ und einen Winkel $\phi$ zur $x$-Achse
 besitzen.  Der Wert der Größe zu jedem Zeitpunkt ist seine $x$-Komponente. Lassen wir nun den Zeiger mit einer
 Kreisfrequenz $\omega$ um den Ursprung drehen, sodass zu Zeitpunkt $t$ das Zeigerdiagramm um den Winkel $\omega t$ aus
@@ -173,7 +206,7 @@ der Ausgangslage gedreht ist. Dann wird der Wert genau einer sinusförmigen Funk
 und Amplitude $A$ folgen. In dieser Darstellung können wir also jeder sinusförmigen Funktion eindeutig einen Zeiger in
 der Ebene zuordnen.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=.7\textwidth]{kZeiger.pdf}
     \caption{Vektoraddition im Zeigerdiagramm}
@@ -187,6 +220,10 @@ der Summe der beiden anderen Wellenformen entspricht.
 Es wird sichtbar, dass unsere Bauteile sehr ähnlich sind: Legen wir eine Spannungswellenform an, so stehen die
 Stromzeiger von Kondensator und Spule im rechten Winkel auf dem Spannungszeiger, während der Widerstand in die selbe
 Richtung zeigt.
+
+
+
+
 \subsubsection{Komplexe Darstellung}
 Diese Darstellung ermöglicht es uns also, Strom- und Spannungskurven geometrisch zu interpretieren. Jedoch würden wir gerne
 algebraisch rechnen können, um konkrete Werte auszurechnen.
@@ -277,11 +314,12 @@ Realteil nehmen. Setzen wir die komplexe Zeitenwicklung für die jeweiligen Grö
         U &= i\omega L \cdot I
     \end{aligned}
 \end{gather*}
-\begin{figure}[t]
+
+Wir können die imaginären Impedanzen von $L$ und $C$ im Zeigerdiagramm wiederfinden: Sie sind beide
+rein imaginär und besitzen $\pi/2$ Phasenverschiebung. Zudem sind sie entgegengesetzt.
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{kCompZeiger.pdf}
     \caption{Bauteilimpedanzen als Zeiger im komplexen Zeigerdiagramm}
 \end{figure}
-Wir können die imaginären Impedanzen von $L$ und $C$ im Zeigerdiagramm wiederfinden: Sie sind beide
-rein imaginär und besitzen $\pi/2$ Phasenverschiebung. Zudem sind sie entgegengesetzt.
 % vim:tw=120
