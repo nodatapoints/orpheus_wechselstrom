@@ -1,0 +1,45 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+\usetheme[numbering=none]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+
+\usetikzlibrary{arrows, arrows.meta, decorations.pathreplacing}
+
+\tikzset{
+	invisible/.style={opacity=0},
+	visible on/.style={alt=#1{}{invisible}},
+	alt/.code args={<#1>#2#3}{%
+		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+},
+}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\usepackage{biblatex}
+\bibliography{sources}
+
+\metroset{numbering=none}
+\usefonttheme[onlymath]{serif}
+
+\title{Komplexe Wechselstromkreise}
+\date{\today}
+\author{Philip Geißler \quad Kamal Abdellatif}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\centering
+\end{document}

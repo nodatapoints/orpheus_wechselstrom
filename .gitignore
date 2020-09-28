@@ -8,3 +8,10 @@ präsentation.pdf
 *.synctex.gz
 *.swp
 *.xdv
+*.bbl
+*.bcf
+*.snm
+*.run.xml
+*.toc
+*.nav
+*.blg
