@@ -7,22 +7,14 @@
 
 \usepackage{tikz}
 \usepackage{xcolor}
+\definecolor{title}{rgb}{.2, .2, .7}
 
 \usetikzlibrary{arrows, arrows.meta, decorations.pathreplacing}
 
-\tikzset{
-	invisible/.style={opacity=0},
-	visible on/.style={alt=#1{}{invisible}},
-	alt/.code args={<#1>#2#3}{%
-		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
-},
-}
-
 \AtBeginSection[]{
-	\begin{frame}
-	%\color{\rgb{51}{51, 178}
-		\huge \centering \bfseries \insertsectionhead\par%
-	\end{frame}
+    \begin{frame}
+        \huge \centering \color{title}\insertsectionhead\par
+    \end{frame}
 }
 
 \usepackage{amsmath}
@@ -33,9 +25,9 @@
 \usefonttheme[onlymath]{serif}
 \setbeamercovered{invisible}
 
-\title{Komplexe Wechselstromkreise}
-\date{\today}
-\author{Philip Geißler, Kamal Abdellatif}
+\title{\Huge Komplexe Wechselstromkreise}
+\date{\Large \today}
+\author{\Large Philip Geißler, Kamal Abdellatif}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -45,6 +37,8 @@
 \begin{frame}
 	\titlepage
 \end{frame}
+
+\include{Teil2}
 
 \centering
 \end{document}
