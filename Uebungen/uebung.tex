@@ -90,7 +90,7 @@ Man berechne die Kenngröße explizit für $L_{\text{Motor}} = \SI{0.1}{\henry}$
         \includegraphics[width=\textwidth]{loes2.pdf}
     \end{minipage}\\[.3em]
     Wir können versuchen, den Gesamtblindwiderstand gleich 0 zu setzen.
-    Denn sollte dies möglich sein, so haben wir mit Sicherheit den Blindwidersatnd minimiert.
+    Denn sollte dies möglich sein, so haben wir mit Sicherheit den Blindwiderstand minimiert.
     \begin{align*}
         \Re(Z) = Z &= \frac{1}{\frac{1}{R + \imu \omega L} + \frac{1}{X_X}}
         = \frac{1}{\frac{X_X + R + \imu \omega L}{X_X \cdot (R + \imu \omega L)}}
@@ -169,7 +169,7 @@ Man berechne die Kenngröße explizit für $L_{\text{Motor}} = \SI{0.1}{\henry}$
 
 
 \begin{problem}{4}{Leistungskosten}{placeholder}
-    Energieversorger rechnen für Privatkunden nicht Blind- und Wirkleistung getrennt ab.
+    Energieversorger rechnen für Privatkunden Blind- und Wirkleistung nicht getrennt ab.
     Stattdessen wird von einer ohmschen Belastung ausgegangen und Energie ($p = 31,\!5\text{ct}/\text{kWh}$) über die approximierte Leistung $\tilde{P} = U_{\text{eff}}I_{\text{eff}}$ berechnet.
     Angenommen man hat in seiner Wohnung $R_{\text{Last}}=\SI{100}{\ohm}$ einen Kondensatorschrank $C = \SI{1}{\farad}$ parallel angeschlossen. Wie viel zahlt man dann jährlich zu viel an den Energieversorger? (Annahme: Blindleistung eigentlich kostenlos, da keine Energie verloren geht.)
 \end{problem}
@@ -185,9 +185,9 @@ Man berechne die Kenngröße explizit für $L_{\text{Motor}} = \SI{0.1}{\henry}$
         \tilde{P} &= U_{\text{eff}}I_{\text{eff}} = U_{\text{eff}}^2 \frac{1}{|Z|} 
         = P_{\text{eff}} \frac{|Z|}{\Re(Z)} \approx \SI{16.62}{\mega\watt} & \mathllap{\text{Scheinleistung}} \\
         \text{jährl. Kosten} &= \tilde{P}\cdot T \cdot p 
-        = \SI{16.62}{\mega\watt} \cdot \SI{31.54}{\mega\second} \cdot 31,\!5\text{ct}/\text{kWh} \approx 45,\!85\,\text{Mio.\EURtm}\\
+        = \SI{16.62}{\mega\watt} \cdot \SI{31.54}{\mega\second} \cdot 31,\!5\text{ct}/\text{kWh} \approx 45,\!86\,\text{Mio.\EURtm}\\
         \text{Extrakosten} &= (\tilde{P}-P_{\text{eff}})\cdot T \cdot p 
-        = \SI{16.61}{\mega\watt} \cdot \SI{31.54}{\mega\second} \cdot 31,\!5\text{ct}/\text{kWh} \approx 45,\!86\,\text{Mio.\EURtm}
+        = \SI{16.61}{\mega\watt} \cdot \SI{31.54}{\mega\second} \cdot 31,\!5\text{ct}/\text{kWh} \approx 45,\!85\,\text{Mio.\EURtm}
     \end{align*}
     Ganz schön teuer. 
 \end{solution}
@@ -196,7 +196,7 @@ Man berechne die Kenngröße explizit für $L_{\text{Motor}} = \SI{0.1}{\henry}$
 
 \field{Konzeption komplexer Wechselstrom}
 \begin{problem}{1}{Effektive und Exakte verrichtete Arbeit}{placeholder}
-Ab welcher Länge eines $\SI{1}{\mega\hertz}$ Signales über ein $RC$-Reihenglied (\SI{100}{\ohm}, \SI{10}{\nano\farad}) weicht die effektive Arbeit nur noch maximal ein Promille von der genauen Arbeit ab?
+Ab welcher Länge eines $\SI{1}{\mega\hertz}$ Signales über ein $RC$-Reihenglied (\SI{100}{\ohm}, \SI{10}{\nano\farad}) weicht die effektive Arbeit nur noch maximal ein Promille von der exakten Arbeit ab?
 % Das is nich mal __genau__ genau, sondern nur grob genau
 % genau genau is sowiso prbly nur numerisch machbar.
 \end{problem}
@@ -232,12 +232,12 @@ Jedes einzelne passive Bauteil hat einen nichtnegativen Wirkwiderstand.
 Aus der Abgeschlossenheit der komplexen Zahlen unter Addition und Inversion folgt, dass auch 
 Kombinationen von Reihen- und Parallelschaltungen nichtnegative Wirkwiderstände besitzen, 
 da die Gesamtimpedanz von diesen nur durch
-Inversion und Addition aus den Einzelimpedanzen berechnet werden kann.
+Inversion und Addition aus den Einzelimpedanzen berechnet werden kann. ($R$ Sei der Wirkwiderstandsteil und $K$ der komplexe Teil der Impedanz.)
 \begin{align*}
-    Z_1 + Z_2 &= (R_1+R_2) + (I_1 + I_2)\imu 
+    Z_1 + Z_2 &= (R_1+R_2) + (K_1 + K_2)\imu 
     &\implies&& \Re(Z_1 + Z_2) &= R_1+R_2 \geqslant 0\\
-    \frac{1}{Z_1} &= \frac{R_1-I_1\imu}{R_1^2 + I_1^2}
-    &\implies&& \Re\qty(\frac{1}{Z_1}) &= \frac{R_1}{R_1^2 + I_1^2} \geqslant 0
+    \frac{1}{Z_1} &= \frac{R_1-I_1\imu}{R_1^2 + K_1^2}
+    &\implies&& \Re\qty(\frac{1}{Z_1}) &= \frac{R_1}{R_1^2 + K_1^2} \geqslant 0
 \end{align*}
 Man beweise, ob/dass dies auch für allgemeine Zweipolschaltungen (wie z.b. die H-Brücke) gilt.
 \end{problem}
