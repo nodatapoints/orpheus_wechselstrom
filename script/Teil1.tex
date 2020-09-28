@@ -1,3 +1,5 @@
+\newcommand{\mbf}[1]{\ensuremath\mathbf{#1}}
+\def\i{\mbf{\kern1pti\kern1pt}}
 \section{Wechselstromkreise}
 \subsection{Grundlagen}
 Im folgenden werden wir uns mit Wechselstromkreisen aus idealen \emph{passiven Bauelementen} beschäftigen, welche
@@ -11,7 +13,7 @@ die Zeit der Form
     I(t) = \hat I\sin(\omega t + \phi_{0/I})
 \end{equation}
 erzeugen. Hier ist $\hat U, \hat I$ die \emph{Amplitude}, $\phi_0$ die \emph{Phase} und  $\omega$ die sogenannte
-\emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/\tau$ als $T = 1/f = \tau/\omega$.
+\emph{Kreisfrequenz}. Die Periodendauer $T$ ergibt sich aus der Frequenz $f = \omega/2\pi$ als $T = 1/f = 2\pi/\omega$.
 Im folgenden wird die Kreisfrequenz $\omega$ beliebig aber fest sein.
 
 Diese Einschränkungen scheinen zunächst sehr limitiert, doch es wird sich durch diese Annahmen offenbaren, wie sich die
@@ -232,7 +234,7 @@ algebraisch rechnen können, um konkrete Werte auszurechnen.
 %eines Bauteils im Wechselstromkreis zu verallgemeinern.
 
 Dazu führen wir \emph{Komplexe Zahlen} ein. Komplexe Zahlen spannen im Gegensatz zu Reellen Zahlen keine Zahlengerade,
-sondern die Ebene auf. Jede Komplexe Zahl $z = a+bi$ besteht aus zwei Teilen: dem \emph{Realteil} $a$ und dem
+sondern die Ebene auf. Jede Komplexe Zahl $z = a+b\i$ besteht aus zwei Teilen: dem \emph{Realteil} $a$ und dem
 \emph{Imaginärteil} $b$. Die Konstante $i$ ist die Imaginäre Einheit, und ist definiert über $i^2 = -1$. Alleine diese
 Eigenschaften reichen aus, um das Rechnen mit Komplexen Zahlen vollständig zu beschreiben.
 
@@ -257,17 +259,17 @@ Multiplikation mit einer Zahl $Ae^{i\phi}$ die Ebene um einen Faktor $A$ streckt
 
 Letzteres können wir gebrauchen: Um das Zeigerdiagramm zum Zeitpunkt $t$ zu bekommen, muss der Ausgangszustand zu $t=0$
 um den Winkel $\omega t$ gedreht werden -- also mit $e^{i\omega t}$ multipliziert. Damit lautet die Zeitentwicklung
-einer komplexen Größe $z$
+einer komplexen Größe $\mbf z$
 \begin{equation}
-    z\cdot e^{i\omega t}
+    \mbf z\cdot e^{i\omega t}
 \end{equation}
-Wenn wir $z$ polar darstellen als $z = \hat A e^{i\phi}$ mit Betrag (Amplitude) $\hat A$ und Winkel (Phase) $\phi$, erkennen wir
+Wenn wir $\mbf z$ polar darstellen als $\mbf z = \hat A e^{i\phi}$ mit Betrag (Amplitude) $\hat A$ und Winkel (Phase) $\phi$, erkennen wir
 etwas wieder
 
 \begin{gather*}
-\Re z\cdot e^{i\omega t}
-    = \Re\qty(Ae^{i\phi} \cdot e^{i\omega t})
-    = \Re\qty(Ae^{i(\omega t + \phi)})
+    \Re\qty(\mbf z\cdot e^{i\omega t})
+    = \Re\qty(\hat Ae^{i\phi} \cdot e^{i\omega t})
+    = \Re\qty(\hat Ae^{i(\omega t + \phi)})
     = \hat A\Re\qty(\cos(\omega t + \phi) + i\sin(\omega t + \phi)) \\
     = \hat A\cos(\omega t  +\phi)
     = \hat A\sin(\omega t + \phi + \pi/2)
@@ -281,21 +283,21 @@ Wir hatten zuvor gesehen, dass sich die Relation von $U(t)$ und $I(t)$ für ein 
 der Amplituden sowie einer Phasendifferenz beschreiben lässt. Zudem hatten wir erkannt, dass diese Relation linear ist.
 
 Der komplexe Zahlenraum ermöglicht es uns, dies in einer einzigen komplexen Zahl zusammenzufassen: Wir definieren die
-\emph{Impedanz} $Z$ eines Bauteils so, dass für die komplexe Darstellung von Strom $I$ und Spannung $U$
+\emph{Impedanz} $\mbf Z$ eines Bauteils so, dass für die komplexe Darstellung von Strom $\mbf I$ und Spannung $\mbf U$
 \begin{equation}\label{eq:impedanz}
-    U = Z \cdot I
+    \mbf U = \mbf Z \cdot \mbf I
 \end{equation}
 Dies sieht dem Ohmschen Gesetz \eqref{eq:R} sehr ähnlich, jedoch ist jede Größe komplex. Die Impedanz enthält sowohl
 einen Betrag als auch eine Phase. Diese Phase stellt nach komplexer Multiplikation genau die Phasendifferenz zwischen
-$U$ und $I$ dar. Die Linearität der Bauteile äußert sich also direkt als lineare Gleichung -- im Komplexen.
+$\mbf U$ und $\mbf I$ dar. Die Linearität der Bauteile äußert sich also direkt als lineare Gleichung -- im Komplexen.
 
-Für den Widerstand bleibt die Impedanz $Z = R$ reell. Die Spule und der Kondensator weisen jeweils eine
+Für den Widerstand bleibt die Impedanz $\mbf Z = R$ reell. Die Spule und der Kondensator weisen jeweils eine
 Phasenverschiebung von $\pm \pi/2$ auf. Das entspricht einem Faktor von $e^{\pm i\pi/2}= \pm i$. Drücken wir also die
 Ergebnisse aus \eqref{eq:RLC} in Form komplexer Impedanzen aus, erhalten wir:
 \begin{align}
-    Z_R &= R \\
-    Z_C &= -\frac i{\omega C} \\
-    Z_L &= i\omega L
+    \mbf Z_R &= R \\
+    \mbf Z_C &= -\frac i{\omega C} \\
+    \mbf Z_L &= i\omega L
 \end{align}
 Die Impedanz ist die komplexe Erweiterung des Widerstandes, und ähnlich wie sie dem ohmschen Gesetz für den Widerstand
 genügt, erfüllt sie auch die Differentialgleichungen \eqref{eq:C}, \eqref{eq:L} für Spule und Widerstand. Zwar sind
@@ -304,14 +306,14 @@ Imaginärteil; Wie wir zuvor Zeiger addiert und dann gedreht haben, können wir 
 Realteil nehmen. Setzen wir die komplexe Zeitenwicklung für die jeweiligen Größen ein, zeigt sich:
 \begin{gather*}
     \begin{aligned}
-        Ie^{i\omega t} &= C\dv{t}(Ue^{i\omega t})
-        I &= i\omega C \cdot U \\
-        U &= - \frac{i}{\omega C} \cdot I
+        \mbf Ie^{i\omega t} &= C\dv{t}(\mbf Ue^{i\omega t}) \\
+        \mbf I &= i\omega C \cdot \mbf U \\
+        \mbf U &= - \frac{i}{\omega C} \cdot \mbf I
     \end{aligned}
     \qquad
     \begin{aligned}
-        Ue^{i\omega t} &= L\dv{t}(Ie^{i\omega t}) \\
-        U &= i\omega L \cdot I
+        \mbf Ue^{i\omega t} &= L\dv{t}(\mbf Ie^{i\omega t}) \\
+        \mbf U &= i\omega L \cdot \mbf I
     \end{aligned}
 \end{gather*}
 
