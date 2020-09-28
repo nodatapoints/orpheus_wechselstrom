@@ -1,13 +1,11 @@
 \documentclass[10pt, aspectratio=169]{beamer}
 
-\usetheme[numbering=none]{metropolis}
 \usepackage{appendixnumberbeamer}
 
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 
 \usepackage{tikz}
-\usepackage{pgfplots}
 \usepackage{xcolor}
 
 \usetikzlibrary{arrows, arrows.meta, decorations.pathreplacing}
@@ -20,20 +18,27 @@
 },
 }
 
+\AtBeginSection[]{
+	\begin{frame}
+	%\color{\rgb{51}{51, 178}
+		\huge \centering \bfseries \insertsectionhead\par%
+	\end{frame}
+}
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{hyperref}
 
-\usepackage{biblatex}
-\bibliography{sources}
-
-\metroset{numbering=none}
 \usefonttheme[onlymath]{serif}
+\setbeamercovered{invisible}
 
 \title{Komplexe Wechselstromkreise}
 \date{\today}
-\author{Philip Geißler \quad Kamal Abdellatif}
+\author{Philip Geißler, Kamal Abdellatif}
+
+\setbeamertemplate{navigation symbols}{}
+
 
 \begin{document}
 
