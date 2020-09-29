@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20200928170130" modified="D:20200929175759"/>
+<info created="D:20200928170130" modified="D:20200929204838"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -511,7 +511,7 @@ h
 <layer name="gamma"/>
 <layer name="theta"/>
 <layer name="delta"/>
-<view layers="theta" active="theta"/>
+<view layers="alpha delta" active="delta"/>
 <path layer="gamma" stroke="black" pen="heavier">
 340 576 m
 84 0 0 -84 256 576 324.354 527.176 a
@@ -647,35 +647,24 @@ h
 384 576 m
 128 0 0 128 256 576 355.951 655.961 a
 </path>
-<path stroke="seagreen" pen="heavier">
+<path stroke="seagreen" pen="ultrafat">
 256 576 m
 356 656 l
 </path>
 <text matrix="1 0 0 1 92 40" transformations="translations" pos="288 580" stroke="black" type="label" width="44.468" height="11.761" depth="3.35" valign="baseline" size="LARGE" style="math">L = \varphi
 </text>
-<text transformations="translations" pos="280 584" stroke="darkgreen" type="label" width="11.042" height="7.41" depth="3.35" valign="baseline" size="LARGE" style="math">\varphi</text>
+<text matrix="1 0 0 1 24 8" transformations="translations" pos="280 584" stroke="darkgreen" type="label" width="11.042" height="7.41" depth="3.35" valign="baseline" size="LARGE" style="math">\varphi</text>
 <text matrix="1 0 0 1 0 -4" transformations="translations" pos="360 660" stroke="darkgreen" type="label" width="19.715" height="14.55" depth="0" valign="baseline" size="LARGE" style="math">e^{\mathbf{i}\varphi}</text>
 <text matrix="1 0 0 1 12 -12" transformations="translations" pos="292 636" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE" style="math">1</text>
-<path stroke="black">
-297.648 576.013 m
-41.6478 0 0 41.6478 256 576 288.639 601.87 a
-</path>
-<path stroke="black">
-300 576 m
-44 0 0 44 256 576 212 576 a
-</path>
-<path stroke="black">
-46.4728 0 0 46.4728 256 576 e
-</path>
 <use name="mark/disk(sx)" pos="356 656" size="normal" stroke="darkgreen"/>
-<text matrix="1 0 0 1 0 -12" transformations="translations" pos="224 596" stroke="curr" type="label" width="10.18" height="7.412" depth="0" valign="baseline" size="LARGE" style="math">\pi</text>
-<text matrix="1 0 0 1 48 -40" transformations="translations" pos="224 596" stroke="volt" type="label" width="18.075" height="11.097" depth="0" valign="baseline" size="LARGE" style="math">2\pi</text>
-<path stroke="curr" pen="heavier">
+<text matrix="1 0 0 1 -8 0" transformations="translations" pos="224 596" stroke="curr" type="label" width="10.18" height="7.412" depth="0" valign="baseline" size="LARGE" style="math">\pi</text>
+<text matrix="1 0 0 1 40 -48" transformations="translations" pos="224 596" stroke="volt" type="label" width="18.075" height="11.097" depth="0" valign="baseline" size="LARGE" style="math">2\pi</text>
+<path stroke="curr" pen="ultrafat">
 256 576 m
 128 576 l
 </path>
 <use name="mark/disk(sx)" pos="128 576" size="normal" stroke="curr"/>
-<path stroke="volt" pen="heavier">
+<path stroke="volt" pen="ultrafat">
 256 576 m
 384 576 l
 </path>
@@ -683,8 +672,8 @@ h
 <text matrix="1 0 0 1 -4 -12" transformations="translations" pos="136 592" stroke="curr" type="label" width="62.357" height="14.554" depth="1.43" valign="baseline" size="LARGE" style="math">e^{\mathbf{i}\pi} = -1</text>
 <text layer="beta" matrix="1 0 0 1 136 -100" transformations="translations" pos="240 656" stroke="black" type="label" width="79.939" height="12.896" depth="4.29" valign="baseline" size="LARGE" style="math">\mathrm{Re}(\mathbf{Z}, \mathbf{U}, \mathbf{I})</text>
 <text matrix="1 0 0 1 -36 -44" transformations="translations" pos="208 764" stroke="black" type="label" width="80.161" height="12.896" depth="4.29" valign="baseline" size="LARGE" style="math">\mathrm{Im}(\mathbf{Z}, \mathbf{U}, \mathbf{I}) </text>
-<text layer="delta" matrix="1 0 0 1 -4 -44" transformations="translations" pos="208 764" stroke="black" type="label" width="45.112" height="12.896" depth="4.29" valign="baseline" size="LARGE" style="math">\mathrm{Im}(\mathbf{C}) </text>
-<text matrix="1 0 0 1 156 -100" transformations="translations" pos="240 656" stroke="black" type="label" width="44.891" height="12.896" depth="4.29" valign="baseline" size="LARGE" style="math">\mathrm{Re}(\mathbf{C})</text>
+<text layer="delta" matrix="1 0 0 1 24 -48" transformations="translations" pos="208 764" stroke="black" type="label" width="18.932" height="11.761" depth="0" valign="baseline" size="LARGE" style="math">\mathrm{Im}</text>
+<text matrix="1 0 0 1 176 -96" transformations="translations" pos="240 656" stroke="black" type="label" width="18.71" height="11.761" depth="0" valign="baseline" size="LARGE" style="math">\mathrm{Re}</text>
 <path matrix="1 0 0 1 0 -256" stroke="black" pen="fat">
 252 704 m
 260 704 l
@@ -708,6 +697,17 @@ h
 <path stroke="black" pen="heavier">
 309.408 647.942 m
 89.5994 0 0 89.5994 256 576 283.285 661.344 a
+</path>
+<path layer="delta" stroke="black">
+16 0 0 16 256 576 e
+</path>
+<path stroke="black">
+288 576 m
+32 0 0 32 256 576 224 576 a
+</path>
+<path stroke="black">
+304 576 m
+48 0 0 48 256 576 293.482 605.985 a
 </path>
 </page>
 </ipe>
