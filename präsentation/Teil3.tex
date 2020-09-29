@@ -2,13 +2,39 @@
 
 
 \begin{frame}
-    \huge
-    \begin{align*}
-        E^2 = m^2c^4 + p^2c^2
-    \end{align*}
-    $$\phantom{I}U=R \cdot I       \phantom{C \cdot \dot{U} L \cdot \dot{I}}$$
-    $$\phantom{U}I=C \cdot \dot{U} \phantom{R \cdot I       L \cdot \dot{I}}$$
-    $$\phantom{I}U=L \cdot \dot{I} \phantom{C \cdot \dot{U} R \cdot I      }$$
+    \only<1-3>{\begin{align*}
+            \frac{\mathbf{U}}{R} &\stackrel{!}{=} \mathbf{I} = \frac{\mathbf{U}}{R}& 
+            \mathllap{\mathbf{I} \coloneqq \hat{I} \cdot e^{\mathbf{i}\omega t}} \\[1.4em]
+            \visible<2-3>{
+                \implies R &= \frac{R \cdot \mathbf{I}}{\mathbf{I}} 
+                \visible<3>{
+                    = R \qquad \\[0.6em]
+                    \mathbf{I} &= \frac{\hat{U}}{R} \cdot e^{\mathbf{i}\omega t}
+                }
+            }
+    \end{align*}}
+    \only<4-6>{\begin{align*}
+            \frac{\mathbf{U}}{\mathbf{X}_C}& \stackrel{!}{=} \mathbf{I} = C\cdot \dot{\mathbf{U}} & 
+                \mathllap{\mathbf{U} \coloneqq \hat{U} \cdot e^{\mathbf{i}\omega t}} \\[1.4em]
+            \visible<5-6>{
+                \implies \mathbf{X}_C &= \frac{\mathbf{U}}{C\cdot \dot{\mathbf{U}}} 
+                \visible<6>{
+                    = \frac{\hat{U} \cdot e^{\mathbf{i}\omega t} }
+                    {C \cdot \hat{U} \cdot \mathbf{i}\omega e^{\mathbf{i}\omega t}} = \frac{1}{\mathbf{i} \omega C} \\[0.6em]
+                    \mathbf{I} &= \mathbf{i} \omega C \hat{U} \cdot e^{\mathbf{i}\omega t}
+                }
+            }
+    \end{align*}}
+    \only<7-9>{\begin{align*}
+            \mathbf{X}_L\mathbf{I}& \stackrel{!}{=} \mathbf{U} = L\cdot \dot{\mathbf{I}} &\mathllap{ 
+                \mathbf{I} \coloneqq \hat{I} \cdot e^{\mathbf{i}\omega t} }\\[1.4em]
+            \visible<8-9>{
+                \implies \mathbf{X}_L &= \frac{L\cdot \dot{\mathbf{I}}}{\mathbf{I}} 
+                \visible<9>{
+                    = \frac{L \cdot \hat{I} \cdot \mathbf{i}\omega e^{\mathbf{i}\omega t}}
+                    {\hat{I} \cdot e^{\mathbf{i}\omega t} } = {\mathbf{i} \omega L}\\[0.6em]
+                    \mathbf{U} &= \mathbf{i} \omega L\hat{I} \cdot e^{\mathbf{i}\omega t} 
+                }
+            }
+    \end{align*}}
 \end{frame}
-
-\phantom{UI}=
