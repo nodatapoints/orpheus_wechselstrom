@@ -1,0 +1,51 @@
+\documentclass[margin=5mm]{standalone}
+\usepackage{siunitx}
+\usepackage[EFvoltages, europeanresistors]{circuitikz}
+%\usepackage[symbols]{circuitikz}
+\usepackage{tikz}
+\begin{document}
+
+% % <------ normale line width
+%\begin{circuitikz}[>=latex, 
+%thin, 
+%common/.style={fill=white}
+%]
+%  \draw
+%  (0,0) node[] (UL) {} % <------
+%  to[short, o-*] (3,0) 
+%  to[C, l={C}, *-*] (3,2)
+%  (3,0) to[short, *-o] (4,0) node[] (UR){} % <------
+%  (0,2) node[] (OL) {} % <------
+%  to[short,o-](0.4,2) 
+%  to[R, l_={R}, -](1.5,2)  % <---
+%  to[L, l_={L},-*](3,2)      % <--
+%  (3,2) to[short, *-o] (4,2) node[] (OR){}; % <------
+%
+%\tikzset{every path/.style={very thin}}
+%\draw[<->] (UL) -- (OL) node[midway]{p$_\textsf{in}$};
+%\draw[<->] (UR) -- (OR) node[midway]{p$_\textsf{out}$};
+%\draw[->, transform canvas={yshift=5mm}] (OL.center) -- +(7mm, 0) node[ anchor=west]{q$_\textsf{in}$};
+%\draw[<-, transform canvas={yshift=5mm}] (OR.center) -- +(-7mm, 0) node[ anchor=east]{p$_\textsf{out}$};
+%\end{circuitikz}
+
+\ctikzset{bipoles/thickness=1}
+% \begin{circuitikz}[>=latex]
+%   \draw
+%   (-1.5,0) to[sV, v=$U$, i=$I$] ++(2,0) -- ++(0,0.5) 
+%   to[R, -, name=R1] ++(1.5,0) -- ++(0,-0.5) -- ++(0.5,0) -- ++(0,-1) -- ++(-4,0) -- ++(0,1);
+%   \draw
+%   (0.5,0) to[short, *-] ++(0,-0.5) to[R, -, name=R2] ++(1.5,0) to[short, -*] ++(0,0.5);
+%   \node  at (R1.center) {$X_1$};
+%   \node  at (R2.center) {$X_2$};
+% \end{circuitikz}
+
+\begin{circuitikz}[>=latex]
+  \draw
+  (-1.5,0) to[sV, v=$U$, i=$I$] ++(2,0) 
+  to[R, -, name=R1] ++(1.5,0) to[R, -, name=R2] ++(1.5,0) -- ++(0,-1) -- ++(-5,0) -- ++(0,1);
+  \node  at (R1.center) {$X_1$};
+  \node  at (R2.center) {$X_2$};
+\end{circuitikz}
+
+
+\end{document}
