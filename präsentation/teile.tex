@@ -19,35 +19,65 @@
 \end{frame}
 
 \section{Die Bauteile}
-\begin{frame}
+\begin{frame}{Widerstand}
     \centering\Huge
     \visible<1->{\includegraphics[width=.5\textwidth]{../script/kBR.pdf}}
     \visible<2->{
-    \parbox[b]{.4\textwidth}{
         $$U = R\cdot I$$
-        \vspace{16mm}
-    }}
-    \vspace{-1cm}  % caught in the act
+    }
+\end{frame}
+\begin{frame}{Widerstand}
+    \centering\Huge
+    \begin{align*}
+        U(t) &= R \cdot I(t) \\
+        \visible<2->{U(t) &= R \cdot \hat I\sin(\omega t)}
+    \end{align*}
     \visible<3>{\includegraphics[width=.7\textwidth]{../script/kPR.pdf}}
 \end{frame}
-\begin{frame}
-    \centering\huge
+\begin{frame}{Kondensator}
+    \centering\Huge
     \visible<1->{\includegraphics[width=.5\textwidth]{../script/kBC.pdf}}
     \visible<2->{
-    \parbox[b]{.4\textwidth}{
-        $$I = C\dot U$$
-        \vspace{16mm}
-    }}
-    \visible<3>{\includegraphics[width=.7\textwidth]{../script/kPC.pdf}}
+        \[ I = C\dot U \]
+    }
 \end{frame}
-\begin{frame}
-    \centering\huge
+\begin{frame}{Kondensator}
+    \begin{columns}
+        \begin{column}{.25\textwidth}
+           \begin{align*}
+                \visible<1->{I(t) &= C \dv{t} U(t) \\}
+                \visible<2->{I(t) &= C \dv{t} \hat U \sin(\omega t - \pi/2) \\}
+                \only<-2>{\vphantom{\underbrace{}_{\hat I}}\\}
+                \only<3>{I(t) &= \vphantom{\underbrace{}_{\hat I}}
+                    \omega C \cdot \hat U \sin(\omega t)\\}
+                \only<4->{I(t) &= \underbrace{\omega C \cdot \hat U}_{\hat I} \sin(\omega t)\\}
+                \visible<5->{U(t) &= \frac1{\omega C}\cdot\hat I \sin(\omega t - \pi/2)}
+            \end{align*}         
+        \end{column}
+        \begin{column}{.7\textwidth}
+            \visible<6>{\includegraphics[width=\textwidth]{../script/kPC.pdf}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Spule}
+    \centering\Huge
     \visible<1->{\includegraphics[width=.5\textwidth]{../script/kBL.pdf}}
     \visible<2->{
-    \parbox[b]{.4\textwidth}{
-        $$U = L\dot I$$
-        \vspace{16mm}
-    }}
-    \vspace{-1cm}  % caught in the act
-    \visible<3>{\includegraphics[width=.7\textwidth]{../script/kPL.pdf}}
+        \[ U = L\dot I \]
+    }
+\end{frame}
+\begin{frame}{Spule}
+    \begin{columns}
+        \begin{column}{.25\textwidth}
+           \begin{align*}
+                \visible<1->{U(t) &= L \dv{t} I(t) \\}
+                \visible<2->{U(t) &= L \dv{t} \hat I \sin(\omega t) \\}
+                \visible<3->{U(t) &= \omega L \cdot \hat I \sin(\omega t + \pi/2)}
+            \end{align*}         
+        \end{column}
+        \begin{column}{.7\textwidth}
+            \visible<3>{\includegraphics[width=\textwidth]{../script/kPC.pdf}}
+        \end{column}
+    \end{columns}
 \end{frame}
