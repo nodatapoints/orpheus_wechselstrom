@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20200928170130" modified="D:20200929170454"/>
+<info created="D:20200928170130" modified="D:20200929175759"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -511,7 +511,7 @@ h
 <layer name="gamma"/>
 <layer name="theta"/>
 <layer name="delta"/>
-<view layers="alpha delta" active="delta"/>
+<view layers="theta" active="theta"/>
 <path layer="gamma" stroke="black" pen="heavier">
 340 576 m
 84 0 0 -84 256 576 324.354 527.176 a
@@ -600,7 +600,6 @@ h
 340 576 m
 84 0 0 84 256 576 324.354 624.824 a
 </path>
-<text matrix="0.945989 0.324198 -0.324198 0.945989 201.755 -43.0198" transformations="translations" pos="304 608" stroke="black" type="label" width="11.042" height="7.41" depth="3.35" valign="baseline" size="LARGE" style="math">\varphi </text>
 <path stroke="white" pen="heavier">
 408 544 m
 155.332 0 0 155.332 256 576 411.332 576 a
@@ -626,10 +625,6 @@ h
 <text matrix="1.06006 0 0 0.987302 -84.9829 13.9936" transformations="translations" pos="416 472" stroke="darkgreen" type="label" width="11.836" height="11.812" depth="0" valign="baseline" size="LARGE" style="math">\mathbf{Z} </text>
 <text matrix="0.945989 0.324198 -0.324198 0.945989 201.965 -43.7971" transformations="translations" pos="288 656" stroke="black" type="label" width="11.114" height="7.412" depth="0" valign="baseline" size="LARGE" style="math">\omega</text>
 <text matrix="0.945989 0.324198 -0.324198 0.945989 291.232 -44.0396" transformations="translations" pos="288 656" stroke="black" type="label" width="11.114" height="7.412" depth="0" valign="baseline" size="LARGE" style="math">\omega </text>
-<path stroke="black" pen="heavier">
-335.924 601.923 m
-84.0232 0 0 84.0232 256 576 323.181 626.464 a
-</path>
 <path stroke="lightblue" arrow="normal/normal">
 256 576 m
 404 624 l
@@ -700,5 +695,19 @@ h
 384 580 l
 </path>
 <text matrix="1 0 0 1 -164 -128" transformations="translations" pos="268 708" stroke="black" type="label" width="21.285" height="11.102" depth="1.43" valign="baseline" size="LARGE" style="math">-1</text>
+<path layer="theta" matrix="0.798885 0.25882 -0.215915 0.665024 175.852 126.688" stroke="pink" arrow="normal/normal">
+256 576 m
+368 672 l
+</path>
+<text matrix="0.945989 0.324198 -0.324198 0.945989 194.954 -53.4403" transformations="translations" pos="304 608" stroke="black" type="label" width="11.042" height="7.41" depth="3.35" valign="baseline" size="LARGE" style="math">\varphi </text>
+<text matrix="1 0 0 1 -23.242 26.6394" transformations="translations" pos="304 608" stroke="black" type="label" width="17.201" height="10.589" depth="0" valign="baseline" size="LARGE" style="math">\omega t </text>
+<path stroke="black" pen="heavier">
+341.18 603.791 m
+89.5987 0 0 89.5987 256 576 327.685 629.751 a
+</path>
+<path stroke="black" pen="heavier">
+309.408 647.942 m
+89.5994 0 0 89.5994 256 576 283.285 661.344 a
+</path>
 </page>
 </ipe>
