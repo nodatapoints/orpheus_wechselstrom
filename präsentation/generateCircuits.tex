@@ -28,16 +28,16 @@
 %\draw[<-, transform canvas={yshift=5mm}] (OR.center) -- +(-7mm, 0) node[ anchor=east]{p$_\textsf{out}$};
 %\end{circuitikz}
 
-\ctikzset{bipoles/thickness=1}
-\begin{circuitikz}[>=latex]
-  \draw
-  (-1.5,0) to[sV, v=$\mathbf{U}$, i=$\mathbf{I}$] ++(2,0) -- ++(0,0.5) 
-  to[R, -, name=R1] ++(1.5,0) -- ++(0,-0.5) -- ++(0.5,0) -- ++(0,-1) -- ++(-4,0) -- ++(0,1);
-  \draw
-  (0.5,0) to[short, *-] ++(0,-0.5) to[R, -, name=R2] ++(1.5,0) to[short, -*] ++(0,0.5);
-  \node  at (R1.center) {$\mathbf{X}_1$};
-  \node  at (R2.center) {$\mathbf{X}_2$};
-\end{circuitikz}
+% \ctikzset{bipoles/thickness=1}
+% \begin{circuitikz}[>=latex]
+%   \draw
+%   (-1.5,0) to[sV, v=$\mathbf{U}$, i=$\mathbf{I}$] ++(2,0) -- ++(0,0.5) 
+%   to[R, -, name=R1] ++(1.5,0) -- ++(0,-0.5) -- ++(0.5,0) -- ++(0,-1) -- ++(-4,0) -- ++(0,1);
+%   \draw
+%   (0.5,0) to[short, *-] ++(0,-0.5) to[R, -, name=R2] ++(1.5,0) to[short, -*] ++(0,0.5);
+%   \node  at (R1.center) {$\mathbf{X}_1$};
+%   \node  at (R2.center) {$\mathbf{X}_2$};
+% \end{circuitikz}
 
 % \begin{circuitikz}[>=latex]
 %   \draw
@@ -49,18 +49,39 @@
 
 % \begin{circuitikz}[>=latex]
 %     \draw (0,0) to[sV, v=$\mathbf{U}_{P~}$, i=$\mathbf{I}_P$] ++(1.8,0) -- ++(0.2,0)
-%         to[R, *-*, l_=$\mathbf{R}\,$] ++(0,-1.5) ++(0,1.5) -- ++(1.5,0)
-%         to[C, *-*, l_=$\mathbf{C}\,$] ++(0,-1.5) ++(0,1.5) -- ++(1.5,0)
-%         ++(0,-1.5) to[L, -, l^=$\mathbf{L}\,$] ++(0,1.5) ++(0,-1.5) 
+%         to[R, *-*, l_=${R}\,$] ++(0,-1.5) ++(0,1.5) -- ++(1.5,0)
+%         to[C, *-*, l_=${C}\,$] ++(0,-1.5) ++(0,1.5) -- ++(1.5,0)
+%         ++(0,-1.5) to[L, -, l^=${L}\,$] ++(0,1.5) ++(0,-1.5) 
 %         -- ++(-5,0) -- ++(0,1.5);
 
 %     \draw (6,0) to[sV, v=$\mathbf{U}_{R~~}$, i=$\mathbf{I}_R$] ++(1.8,0) -- ++(0.2,0)
 %         -- ++(3,0) -- ++(0,-1.5) 
-%         to[L, -, l_=$\mathbf{L}\,$] ++(-2,0) 
-%         to[C, -, l_=$\mathbf{C}\,$] ++(-1,0)
-%         to[R, -, l_=$\mathbf{R}\,$] ++(-2,0)
+%         to[L, -, l_=${L}\,$] ++(-2,0) 
+%         to[C, -, l_=${C}\,$] ++(-1,0)
+%         to[R, -, l_=${R}\,$] ++(-2,0)
 %         -- ++(0,1.5);
 % \end{circuitikz}
+
+
+% \ctikzset{bipoles/thickness=1}
+% \begin{circuitikz}[>=latex]
+%     \draw (4,0) node[font=\small, anchor=270]{$U_e$} 
+%     to[C, o-*, l_=$\mathbf{X}_C$] ++(1.5, 0) to[short, -o] 
+%     ++(0,0.5) node[font=\small, anchor=270]{$U_{a}$}
+%     ++(0,-0.5) to[R, -, l_=$\mathbf{R}$] ++(2,0) node[ground]{};
+% \end{circuitikz}
+
+
+\ctikzset{bipoles/thickness=1}
+\begin{circuitikz}[>=latex]
+    \draw (4,1) to[L, -*, l=$\mathbf{X}_{L_1}$] ++(1.5,0);
+    \draw (4,1) node[font=\small, anchor=270]{$U_e$} to[C, o-, l_=$\mathbf{X}_{C_1}$] ++(0,-1)
+    to[C, -*, l_=$\mathbf{X}_{C_2}$] ++(1.5, 0) to[short, -] 
+    ++(0,1) to[L, -, l=$\mathbf{X}_{L_2}$] ++(2,0) to[short, -*] ++(0,-1);
+    \draw (5.5,0) to[R, -, l_=$\mathbf{R}$] ++(2,0) node[ground]{};
+
+    \draw (10,0) node[font=\small, anchor=270]{$U_e$}  to[R, o-, l_=$\mathbf{Z}$] ++(2,0) node[ground]{};
+\end{circuitikz}
 
 
 \end{document}

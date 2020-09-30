@@ -66,14 +66,64 @@
 
 \begin{frame}
     \includegraphics[width=\textwidth]{philipCircuits3.pdf}
+    \begin{align*}
+    \mathbf{Z}_P &= \mathbf{R} \parallel \mathbf{X}_C \parallel \mathbf{X}_L & 
+    \mathbf{Z}_R &= \mathbf{R} + \mathbf{X}_C + \mathbf{X}_L \\
+    &= R \parallel \frac{1}{\mathbf{i}\omega C} \parallel \mathbf{i}\omega L &
+    &= R + \frac{1}{\mathbf{i}\omega C} + \mathbf{i}\omega L
+    \end{align*}
 \end{frame}
 
 % \begin{frame}
 %     % Here be Erklärung, dass das alles im komplexen Raum is. 
 % \end{frame}
 
-% \begin{frame}
-%     % Here be FT ausblick
-% \end{frame}
+\section{Ausblick: Mehrfrequenzsignale}
 
+\begin{frame}
+    % Erklärung Gesamtimpedanz widerholung
+    \begin{center}
+        \includegraphics[width=\textwidth]{philipCircuits5.pdf}
+    \end{center}
+\end{frame}
 
+\begin{frame}
+    % Erklärung Aufspaltung in mehrere Sinen
+    \begin{center}
+        \includegraphics[width=.4\textwidth]{philipCircuits4.pdf}
+    \end{center}
+    \begin{align*}
+        \visible<2-3>{\mathbf{H}(\omega) &\coloneqq \frac{\mathbf{U}_a(t)}{\mathbf{U}_e(t)} &\implies && \mathbf{U}_a(t) &= \mathbf{H}(\omega) \mathbf{U}_e(t)\\[0.6em]\visible<3>{
+        \mathbf{U}_e(t) &= \mathbf{\hat{U}}_1 e^{\mathbf{i}\omega_1t} + \mathbf{\hat{U}}_2 e^{\mathbf{i}\omega_1t} 
+        & \implies && \mathbf{U}_a(t) &= \mathbf{H}(\omega_1) \mathbf{U}_{e,\omega_1}(t) \\
+        & = \mathbf{U}_{e,\omega_1}(t) + \mathbf{U}_{e,\omega_2}(t) &&&& \quad+ \mathbf{H}(\omega_2) \mathbf{U}_{e,\omega_2}(t)}}
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    % Summe einzelner Omegas -> integral
+    \begin{center}
+        \includegraphics[width=.4\textwidth]{philipCircuits4.pdf}
+    \end{center}
+    \only<1>{\begin{align*}
+        \mathbf{H}(\omega) = \frac{\mathbf{R}}{\mathbf{R} + \mathbf{X}_C} = \frac{1}{1 + \frac{1}{\mathbf{i}\Omega}} \quad \text{mit} \quad \Omega \coloneqq \omega RC
+    \end{align*}}
+    \only<2>{\begin{align*}
+        \mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\int_{0}^{\infty} \mathbf{H}(\omega) \mathcal{F} \big[\mathbf{U}_e(t)\big] \dd{\omega}\Big]
+    \end{align*}}
+\end{frame}
+
+\begin{frame}
+    \only<1>{\includegraphics[width=.96\textwidth]{philipFT1.pdf}}
+    \only<2>{\includegraphics[width=.96\textwidth]{philipFT2.pdf}}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+    {\includegraphics[width=.49\textwidth]{philipFT1.pdf}}
+    {\includegraphics[width=.49\textwidth]{philipFT2.pdf}}
+\end{center}\\
+\begin{align*}
+        \mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\int_{0}^{\infty} \mathbf{H}(\omega) \mathcal{F} \big[\mathbf{U}_e(t)\big] \dd{\omega}\Big]
+    \end{align*}
+\end{frame}
