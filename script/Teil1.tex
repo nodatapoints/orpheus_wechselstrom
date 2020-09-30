@@ -324,4 +324,23 @@ rein imaginär und besitzen $\pi/2$ Phasenverschiebung. Zudem sind sie entgegeng
     \includegraphics[width=0.5\textwidth]{kCompZeiger.pdf}
     \caption{Bauteilimpedanzen als Zeiger im komplexen Zeigerdiagramm}
 \end{figure}
+Die komplexen Impedanzen geben uns die Möglichkeit, die geometrische Anschauung mit algebraischer Eleganz zu vereinen.
+Damit haben wir die allgemeine Relation zwischen $U(t)$ und $I(t)$
+\[ U(T) \llra I(t) \]
+, welche wir vorher holprig über Phasenverschiebung
+und Amplitudenverhältnis ausdrücken mussten, ersetzt durch eine direkte Proportionalität im komplexen Raum
+\[ \mbf U = \mbf Z \cdot \mbf I \]
+Um zu unterstreichen, dass es sich um das selbe Konzept handelt, können wir die Impedanz auf die zuvor eingeführten
+Eigenschaften der Linearität und Zeitinvarianz testen:
+Angenommen die Proportionalität $ \mbf U_{1,2} = \mbf Z \cdot \mbf I_{1,2}$ gilt, dann folgt
+\begin{enumerate}[label=(\arabic*)]
+    \item
+        \[ a\mbf U_1 = a\mbf Z \cdot \mbf I_1 \]
+    \item
+        \[ \mbf U_1 + \mbf U_2 = \mbf Z \cdot (\mbf I_1 + \mbf I_2) \]
+    \item für eine beliebige Zeitverschiebung $\tau$ nach der Zeitenwicklung $e^{i\omega\tau}$
+        \[ e^{i\omega\tau}\mbf U_1 = e^{i\omega\tau}\mbf Z \cdot \mbf I_1 ~. \]
+\end{enumerate}
+Es handelt sich also in der Tat um die anfänglich beschiebene Relation in einer algebraischen Darstellung.
+
 % vim:tw=120
