@@ -1,6 +1,6 @@
 \documentclass[margin=5mm]{standalone}
 \usepackage{siunitx}
-\usepackage[EFvoltages, europeanresistors]{circuitikz}
+\usepackage[RPvoltages, europeanresistors]{circuitikz}
 %\usepackage[symbols]{circuitikz}
 \usepackage{tikz}
 \begin{document}
@@ -29,23 +29,38 @@
 %\end{circuitikz}
 
 \ctikzset{bipoles/thickness=1}
+\begin{circuitikz}[>=latex]
+  \draw
+  (-1.5,0) to[sV, v=$\mathbf{U}$, i=$\mathbf{I}$] ++(2,0) -- ++(0,0.5) 
+  to[R, -, name=R1] ++(1.5,0) -- ++(0,-0.5) -- ++(0.5,0) -- ++(0,-1) -- ++(-4,0) -- ++(0,1);
+  \draw
+  (0.5,0) to[short, *-] ++(0,-0.5) to[R, -, name=R2] ++(1.5,0) to[short, -*] ++(0,0.5);
+  \node  at (R1.center) {$\mathbf{X}_1$};
+  \node  at (R2.center) {$\mathbf{X}_2$};
+\end{circuitikz}
+
 % \begin{circuitikz}[>=latex]
 %   \draw
-%   (-1.5,0) to[sV, v=$\mathbf{U}$, i=$\mathbf{I}$] ++(2,0) -- ++(0,0.5) 
-%   to[R, -, name=R1] ++(1.5,0) -- ++(0,-0.5) -- ++(0.5,0) -- ++(0,-1) -- ++(-4,0) -- ++(0,1);
-%   \draw
-%   (0.5,0) to[short, *-] ++(0,-0.5) to[R, -, name=R2] ++(1.5,0) to[short, -*] ++(0,0.5);
+%   (-1.5,0) to[sV, v=$\mathbf{U}$, i=$\mathbf{I}$] ++(2,0) to[R, -, name=R1] ++(2,0) -- ++(0,-1) 
+%   to[R, -, name=R2] ++(-2,0) -- ++(-1,0) -- ++(-1,0) -- ++(0,1);
 %   \node  at (R1.center) {$\mathbf{X}_1$};
 %   \node  at (R2.center) {$\mathbf{X}_2$};
 % \end{circuitikz}
 
-\begin{circuitikz}[>=latex]
-  \draw
-  (-1.5,0) to[sV, v=$\mathbf{U}$, i=$\mathbf{I}$] ++(2,0) to[R, -, name=R1] ++(2,0) -- ++(0,-1) 
-  to[R, -, name=R2] ++(-2,0) -- ++(-1,0) -- ++(-1,0) -- ++(0,1);
-  \node  at (R1.center) {$\mathbf{X}_1$};
-  \node  at (R2.center) {$\mathbf{X}_2$};
-\end{circuitikz}
+% \begin{circuitikz}[>=latex]
+%     \draw (0,0) to[sV, v=$\mathbf{U}_{P~}$, i=$\mathbf{I}_P$] ++(1.8,0) -- ++(0.2,0)
+%         to[R, *-*, l_=$\mathbf{R}\,$] ++(0,-1.5) ++(0,1.5) -- ++(1.5,0)
+%         to[C, *-*, l_=$\mathbf{C}\,$] ++(0,-1.5) ++(0,1.5) -- ++(1.5,0)
+%         ++(0,-1.5) to[L, -, l^=$\mathbf{L}\,$] ++(0,1.5) ++(0,-1.5) 
+%         -- ++(-5,0) -- ++(0,1.5);
+
+%     \draw (6,0) to[sV, v=$\mathbf{U}_{R~~}$, i=$\mathbf{I}_R$] ++(1.8,0) -- ++(0.2,0)
+%         -- ++(3,0) -- ++(0,-1.5) 
+%         to[L, -, l_=$\mathbf{L}\,$] ++(-2,0) 
+%         to[C, -, l_=$\mathbf{C}\,$] ++(-1,0)
+%         to[R, -, l_=$\mathbf{R}\,$] ++(-2,0)
+%         -- ++(0,1.5);
+% \end{circuitikz}
 
 
 \end{document}
