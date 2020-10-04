@@ -1,4 +1,4 @@
-% stuff on second day
+    % stuff on second day
 
 
 \begin{frame}
@@ -37,6 +37,30 @@
                 }
             }
     \end{align*}}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \begin{tikzpicture}
+        \definecolor{darkblue}{rgb}{0, 0, 0.7}
+        \definecolor{darkgreen}{rgb}{0, 0.7, 0}
+        \definecolor{darkred}{rgb}{0.7, 0, 0}
+        \draw[thick, ->] (-4, 0) -- (4, 0);
+        \draw[thick, ->] (0, -4) -- (0, 4);
+
+        \visible<2->{
+            \draw[ultra thick, -{Latex}, darkgreen] (0, 0) --
+            node[above] {$R$} (0:3) node[above right] {$\mathbf{R}$};
+        }
+        \visible<3->{
+            \draw[ultra thick, -{Latex}, darkred] (0, 0) --
+            node[left] {$\omega L$} (90:3) node[above right] {$\mathbf{L}$};
+        }
+        \visible<4->{
+            \draw[ultra thick, -{Latex}, darkblue] (0, 0) -- 
+            node[left] {$1/\omega C$} (-90:3) node[below right] {$\mathbf{C}$};
+        }
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -109,7 +133,7 @@
         \mathbf{H}(\omega) = \frac{\mathbf{R}}{\mathbf{R} + \mathbf{X}_C} = \frac{1}{1 + \frac{1}{\mathbf{i}\Omega}} \quad \text{mit} \quad \Omega \coloneqq \omega RC
     \end{align*}}
     \only<2>{\begin{align*}
-        \mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\int_{0}^{\infty} \mathbf{H}(\omega) \mathcal{F} \big[\mathbf{U}_e(t)\big] \dd{\omega}\Big]
+        \mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\mathbf{H}(\omega) \cdot \mathcal{F} \big[\mathbf{U}_e(t)\big] \Big]
     \end{align*}}
 \end{frame}
 
@@ -124,7 +148,8 @@
     {\includegraphics[width=.49\textwidth]{philipFT2.pdf}}
 \end{center}
 \begin{align*}
-        \mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\int_{0}^{\infty} \mathbf{H}(\omega) \mathcal{F} \big[\mathbf{U}_e(t)\big] \dd{\omega}\Big]
+        \mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\mathbf{H}(\omega) \cdot \mathcal{F} \big[\mathbf{U}_e(t)\big] \Big]
+        %\mathbf{U}_a(t) = \mathcal{F}^{-1} \Big[\int_{0}^{\infty} \mathbf{H}(\omega) \mathcal{F} \big[\mathbf{U}_e(t)\big] \dd{\omega}\Big]
     \end{align*}
 \end{frame}
 
